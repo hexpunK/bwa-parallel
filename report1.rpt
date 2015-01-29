@@ -1,0 +1,3602 @@
+
+<;-1:-1;IPO;;0>
+WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+
+WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+
+WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: disabled
+  -inline-max-per-compile: disabled
+
+
+<bwt_gen.c;1611:1613;IPO INLINING;bwt_bwtgen;0>
+INLINING REPORT: (bwt_bwtgen) [1/94=1.1%]
+
+  -> INLINE: bwt_bwtgen2(694) (isz = 117) (sz = 126 (36+90))
+    -> BWTIncConstructFromPacked(38) (isz = 726) (sz = 737 (267+470))
+    -> printf(EXTERN)
+    -> INLINE: BWTSaveBwtCodeAndOcc(696) (isz = 94) (sz = 103 (29+74))
+      -> exit(EXTERN)
+      -> exit(EXTERN)
+      -> exit(EXTERN)
+      -> fprintf(EXTERN)
+      -> strerror(EXTERN)
+      -> __errno_location(EXTERN)
+      -> fclose(EXTERN)
+      -> fwrite(EXTERN)
+      -> fprintf(EXTERN)
+      -> strerror(EXTERN)
+      -> __errno_location(EXTERN)
+      -> fwrite(EXTERN)
+      -> fwrite(EXTERN)
+      -> INLINE: BWTFileSizeInWord(697) (isz = 1) (sz = 7 (2+5))
+      -> fprintf(EXTERN)
+      -> strerror(EXTERN)
+      -> __errno_location(EXTERN)
+      -> fopen(EXTERN)
+    -> INLINE: BWTIncFree(695) (isz = 8) (sz = 14 (7+7))
+      -> free(EXTERN)
+      -> free(EXTERN)
+      -> free(EXTERN)
+
+
+<bwt_gen.c;1611:1613;IPO FORWARD SUBSTITUTION;bwt_bwtgen;0>
+  SUBSTITUTION: TOTAL(30):REPLACE(21)REMOVE(9)
+
+
+<bwt_gen.c;1437:1541;IPO INLINING;BWTIncConstructFromPacked;0>
+INLINING REPORT: (BWTIncConstructFromPacked) [2/94=2.1%]
+
+  -> exit(EXTERN)
+  -> exit(EXTERN)
+  -> exit(EXTERN)
+  -> exit(EXTERN)
+  -> fprintf(EXTERN)
+  -> strerror(EXTERN)
+  -> __errno_location(EXTERN)
+  -> exit(EXTERN)
+  -> exit(EXTERN)
+  -> fprintf(EXTERN)
+  -> strerror(EXTERN)
+  -> __errno_location(EXTERN)
+  -> exit(EXTERN)
+  -> exit(EXTERN)
+  -> exit(EXTERN)
+  -> fprintf(EXTERN)
+  -> strerror(EXTERN)
+  -> __errno_location(EXTERN)
+  -> exit(EXTERN)
+  -> fseek(EXTERN)
+  -> fprintf(EXTERN)
+  -> strerror(EXTERN)
+  -> __errno_location(EXTERN)
+  -> fread(EXTERN)
+  -> ferror(EXTERN)
+  -> fseek(EXTERN)
+  -> fprintf(EXTERN)
+  -> strerror(EXTERN)
+  -> __errno_location(EXTERN)
+  -> INLINE: ConvertBytePackedToWordPacked(663) (isz = 188) (sz = 199 (85+114))
+    -> BitPerBytePackedChar(18) (isz = 31) (sz = 38 (11+27))
+    -> INLINE: BitPerWordPackedChar(664) (isz = 26) (sz = 33 (9+24))
+      -> INLINE: ceilLog2(665) (isz = 25) (sz = 32 (9+23))
+        -> INLINE: leadingZero(666) (isz = 21) (sz = 28 (9+19))
+  -> BWTIncConstruct(37) (isz = 945) (sz = 952 (224+728))
+  -> fprintf(EXTERN)
+  -> BWTIncConstruct(37) (isz = 945) (sz = 952 (224+728))
+  -> INLINE: ConvertBytePackedToWordPacked(659) (isz = 188) (sz = 199 (85+114))
+    -> BitPerBytePackedChar(18) (isz = 31) (sz = 38 (11+27))
+    -> INLINE: BitPerWordPackedChar(660) (isz = 26) (sz = 33 (9+24))
+      -> INLINE: ceilLog2(661) (isz = 25) (sz = 32 (9+23))
+        -> INLINE: leadingZero(662) (isz = 21) (sz = 28 (9+19))
+  -> fprintf(EXTERN)
+  -> strerror(EXTERN)
+  -> __errno_location(EXTERN)
+  -> fseek(EXTERN)
+  -> ferror(EXTERN)
+  -> fread(EXTERN)
+  -> fprintf(EXTERN)
+  -> strerror(EXTERN)
+  -> __errno_location(EXTERN)
+  -> fseek(EXTERN)
+  -> BWTIncSetBuildSizeAndTextAddr(15) (isz = 89) (sz = 94 (23+71))
+  -> BWTIncCreate(22) (isz = 250) (sz = 261 (63+198))
+  -> INLINE: TextLengthFromBytePacked(693) (isz = 1) (sz = 11 (2+9))
+  -> ferror(EXTERN)
+  -> fread(EXTERN)
+  -> fprintf(EXTERN)
+  -> strerror(EXTERN)
+  -> __errno_location(EXTERN)
+  -> ftell(EXTERN)
+  -> fprintf(EXTERN)
+  -> strerror(EXTERN)
+  -> __errno_location(EXTERN)
+  -> fseek(EXTERN)
+  -> fprintf(EXTERN)
+  -> strerror(EXTERN)
+  -> __errno_location(EXTERN)
+  -> fopen(EXTERN)
+
+
+<bwt_gen.c;1437:1541;IPO FORWARD SUBSTITUTION;BWTIncConstructFromPacked;0>
+  SUBSTITUTION: TOTAL(84):REPLACE(73)REMOVE(11)
+
+
+HPO VECTORIZER REPORT (BWTIncConstructFromPacked) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwt_gen.c;-1:-1;hpo_vectorization;BWTIncConstructFromPacked;0>
+HPO Vectorizer Report (BWTIncConstructFromPacked)
+
+bwt_gen.c(1505:2-1505:2):VEC:BWTIncConstructFromPacked:  loop was not vectorized: existence of vector dependence
+loop was not vectorized: not inner loop
+loop was not vectorized: vectorization possible but seems inefficient
+loop was not vectorized: unsupported loop structure
+loop was not vectorized: existence of vector dependence
+loop was not vectorized: not inner loop
+loop was not vectorized: vectorization possible but seems inefficient
+bwt_gen.c(1533:3-1533:3):VEC:BWTIncConstructFromPacked:  loop was not vectorized: existence of vector dependence
+loop was not vectorized: not inner loop
+loop was not vectorized: vectorization possible but seems inefficient
+loop was not vectorized: unsupported loop structure
+loop was not vectorized: existence of vector dependence
+loop was not vectorized: not inner loop
+loop was not vectorized: vectorization possible but seems inefficient
+bwt_gen.c(1510:2-1510:2):VEC:BWTIncConstructFromPacked:  loop was not vectorized: not inner loop
+
+HLO REPORT LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<ipo_out1.c;-1:-1;hlo;BWTIncConstructFromPacked;0>
+High Level Optimizer Report (BWTIncConstructFromPacked)
+
+<bwt_gen.c;1505:1505;hlo_scalar_replacement;in BWTIncConstructFromPacked;0>
+#of Array Refs Scalar Replaced in BWTIncConstructFromPacked at line 1505=1
+#of Array Refs Scalar Replaced in BWTIncConstructFromPacked at line 1505=1
+#of Array Refs Scalar Replaced in BWTIncConstructFromPacked at line 1505=1
+#of Array Refs Scalar Replaced in BWTIncConstructFromPacked at line 1505=1
+
+<bwt_gen.c;1533:1533;hlo_scalar_replacement;in BWTIncConstructFromPacked;0>
+#of Array Refs Scalar Replaced in BWTIncConstructFromPacked at line 1533=1
+#of Array Refs Scalar Replaced in BWTIncConstructFromPacked at line 1533=1
+#of Array Refs Scalar Replaced in BWTIncConstructFromPacked at line 1533=1
+#of Array Refs Scalar Replaced in BWTIncConstructFromPacked at line 1533=1
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwt_gen.c;1505:1505;hlo_unroll;BWTIncConstructFromPacked;0>
+Loop at line 1505 unrolled with remainder by 2   
+Loop at line 1505 completely unrolled by 16   
+Loop at line 1505 unrolled with remainder by 2   
+Loop at line 1505 unrolled with remainder by 2   
+
+<bwt_gen.c;1533:1533;hlo_unroll;BWTIncConstructFromPacked;0>
+Loop at line 1533 unrolled with remainder by 2   
+Loop at line 1533 completely unrolled by 16   
+Loop at line 1533 unrolled with remainder by 2   
+Loop at line 1533 unrolled with remainder by 2   
+
+<bwt_gen.c;244:250;IPO CONSTANT PROPAGATION;BitPerBytePackedChar;0>
+  CONSTANT PROPAGATION:FORMALS(1)
+
+
+<bwt_gen.c;244:250;IPO INLINING;BitPerBytePackedChar;0>
+INLINING REPORT: (BitPerBytePackedChar) [3/94=3.2%]
+
+  -> INLINE: ceilLog2(652) (isz = 25) (sz = 32 (9+23))
+    -> INLINE: leadingZero(653) (isz = 21) (sz = 28 (9+19))
+
+
+<bwt_gen.c;244:250;IPO CONSTANT PROPAGATION;BitPerBytePackedChar;0>
+  CONSTANT PROPAGATION:VARS(1),
+
+
+<bwt_gen.c;244:250;IPO FORWARD SUBSTITUTION;BitPerBytePackedChar;0>
+  SUBSTITUTION: TOTAL(2):REPLACE(1)REMOVE(1)
+
+
+<bwt_gen.c;1299:1434;IPO INLINING;BWTIncConstruct;0>
+INLINING REPORT: (BWTIncConstruct) [4/94=4.3%]
+
+  -> __assert_fail(EXTERN)
+  -> BWTIncSetBuildSizeAndTextAddr(15) (isz = 89) (sz = 94 (23+71))
+  -> BWTGenerateOccValueFromBwt(36) (isz = 701) (sz = 714 (215+499))
+  -> __assert_fail(EXTERN)
+  -> INLINE: BWTIncPutPackedTextToRank(667) (isz = 117) (sz = 128 (43+85))
+  -> QSufSortSuffixSort(1) (isz = 355) (sz = 370 (163+207))
+  -> initializeVAL(9) (isz = 10) (sz = 19 (10+9))
+  -> INLINE: BWTIncBuildPackedBwt(671) (isz = 51) (sz = 64 (22+42))
+  -> __assert_fail(EXTERN)
+  -> INLINE: BWTClearTrailingBwtCode(675) (isz = 56) (sz = 61 (18+43))
+    -> INLINE: BWTResidentSizeInWord(676) (isz = 4) (sz = 11 (3+8))
+  -> __assert_fail(EXTERN)
+  -> BWTIncMergeBwt(34) (isz = 307) (sz = 322 (96+226))
+  -> INLINE: BWTIncBuildBwt(677) (isz = 29) (sz = 40 (14+26))
+  -> __assert_fail(EXTERN)
+  -> QSufSortSuffixSort(1) (isz = 355) (sz = 370 (163+207))
+  -> INLINE (PARTIAL): BWTIncSortKey(736) (isz = 12) (sz = 12 (4+8))
+    -> PI_CLONE BWTIncSortKey..0(734) (isz = 0) (sz = 0 (0+0))
+  -> INLINE (PARTIAL): BWTIncSortKey(735) (isz = 12) (sz = 12 (4+8))
+    -> PI_CLONE BWTIncSortKey..0(734) (isz = 0) (sz = 0 (0+0))
+  -> INLINE: BWTIncBuildRelativeRank(678) (isz = 115) (sz = 130 (47+83))
+  -> INLINE (PARTIAL): BWTIncSortKey(733) (isz = 12) (sz = 12 (4+8))
+    -> PI_CLONE BWTIncSortKey..0(734) (isz = 0) (sz = 0 (0+0))
+  -> BWTIncGetAbsoluteRank(30) (isz = 302) (sz = 321 (88+233))
+  -> __assert_fail(EXTERN)
+  -> ForwardDNAAllOccCountNoLimit(24) (isz = 223) (sz = 234 (71+163))
+  -> initializeVAL_bg(10) (isz = 10) (sz = 19 (10+9))
+  -> INLINE: BWTOccValueMinorSizeInWord(687) (isz = 5) (sz = 12 (3+9))
+  -> INLINE: BWTResidentSizeInWord(674) (isz = 4) (sz = 11 (3+8))
+
+
+<bwt_gen.c;1299:1434;IPO FORWARD SUBSTITUTION;BWTIncConstruct;0>
+  SUBSTITUTION: TOTAL(54):REPLACE(41)REMOVE(13)
+
+
+HPO VECTORIZER REPORT (BWTIncConstruct) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwt_gen.c;-1:-1;hpo_vectorization;BWTIncConstruct;0>
+HPO Vectorizer Report (BWTIncConstruct)
+
+bwt_gen.c(1325:3-1325:3):VEC:BWTIncConstruct:  loop was not vectorized: existence of vector dependence
+loop was not vectorized: existence of vector dependence
+loop was not vectorized: unsupported loop structure
+bwt_gen.c(1338:3-1338:3):VEC:BWTIncConstruct:  loop was not vectorized: existence of vector dependence
+bwt_gen.c(1371:3-1371:3):VEC:BWTIncConstruct:  loop was not vectorized: existence of vector dependence
+bwt_gen.c(1387:3-1387:3):VEC:BWTIncConstruct:  loop was not vectorized: existence of vector dependence
+bwt_gen.c(1399:3-1399:3):VEC:BWTIncConstruct:  loop was not vectorized: existence of vector dependence
+bwt_gen.c(1417:2-1417:2):VEC:BWTIncConstruct:  loop was not vectorized: existence of vector dependence
+loop was not vectorized: not inner loop
+
+
+<ipo_out1.c;-1:-1;hlo;BWTIncConstruct;0>
+High Level Optimizer Report (BWTIncConstruct)
+
+<bwt_gen.c;1325:1325;hlo_scalar_replacement;in BWTIncConstruct;0>
+#of Array Refs Scalar Replaced in BWTIncConstruct at line 1325=1
+#of Array Refs Scalar Replaced in BWTIncConstruct at line 1325=1
+#of Array Refs Scalar Replaced in BWTIncConstruct at line 1325=1
+
+
+<bwt_gen.c;1417:1417;hlo_reroll;BWTIncConstruct;0>
+Loop at line:1417     memset generated  
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwt_gen.c;1325:1325;hlo_unroll;BWTIncConstruct;0>
+Loop at line 1325 unrolled with remainder by 2   
+Loop at line 1325 completely unrolled by 16   
+
+<bwt_gen.c;1338:1338;hlo_unroll;BWTIncConstruct;0>
+Loop at line 1338 unrolled with remainder by 2   
+
+<bwt_gen.c;1399:1399;hlo_unroll;BWTIncConstruct;0>
+Loop at line 1399 unrolled with remainder by 2   
+
+<bwt_gen.c;1417:1417;hlo_unroll;BWTIncConstruct;0>
+Loop at line 1417 unrolled with remainder by 2   
+bwt_gen.c(1417:2-1417:2):CG:BWTIncConstruct:  call to memset implemented as a call to optimized library version
+
+<bwt_gen.c;694:866;IPO INLINING;BWTIncSortKey..0;0>
+INLINING REPORT: (BWTIncSortKey..0) [5/94=5.3%]
+
+
+
+HPO VECTORIZER REPORT (BWTIncSortKey..0) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwt_gen.c;-1:-1;hpo_vectorization;BWTIncSortKey..0;0>
+HPO Vectorizer Report (BWTIncSortKey..0)
+
+bwt_gen.c(721:6-721:6):VEC:BWTIncSortKey..0:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwt_gen.c(718:5-718:5):VEC:BWTIncSortKey..0:  loop was not vectorized: not inner loop
+bwt_gen.c(769:5-769:5):VEC:BWTIncSortKey..0:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwt_gen.c(773:5-773:5):VEC:BWTIncSortKey..0:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwt_gen.c(766:4-766:4):VEC:BWTIncSortKey..0:  loop was not vectorized: unsupported loop structure
+bwt_gen.c(816:6-816:6):VEC:BWTIncSortKey..0:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwt_gen.c(819:6-819:6):VEC:BWTIncSortKey..0:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwt_gen.c(813:5-813:5):VEC:BWTIncSortKey..0:  loop was not vectorized: unsupported loop structure
+bwt_gen.c(710:5-710:5):VEC:BWTIncSortKey..0:  loop was not vectorized: not inner loop
+
+<bwt_gen.c;431:500;IPO INLINING;ForwardDNAAllOccCountNoLimit;0>
+INLINING REPORT: (ForwardDNAAllOccCountNoLimit) [6/94=6.4%]
+
+  -> exit(EXTERN)
+  -> fprintf(EXTERN)
+
+
+HPO VECTORIZER REPORT (ForwardDNAAllOccCountNoLimit) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwt_gen.c;-1:-1;hpo_vectorization;ForwardDNAAllOccCountNoLimit;0>
+HPO Vectorizer Report (ForwardDNAAllOccCountNoLimit)
+
+bwt_gen.c(441:2-441:2):VEC:ForwardDNAAllOccCountNoLimit:  loop was not vectorized: vectorization possible but seems inefficient
+bwt_gen.c(453:3-453:3):VEC:ForwardDNAAllOccCountNoLimit:  loop was not vectorized: vectorization possible but seems inefficient
+bwt_gen.c(450:2-450:2):VEC:ForwardDNAAllOccCountNoLimit:  loop was not vectorized: unsupported loop structure
+bwt_gen.c(483:2-483:2):VEC:ForwardDNAAllOccCountNoLimit:  loop was not vectorized: vectorization possible but seems inefficient
+
+
+<ipo_out1.c;-1:-1;hlo;ForwardDNAAllOccCountNoLimit;0>
+High Level Optimizer Report (ForwardDNAAllOccCountNoLimit)
+
+<bwt_gen.c;483:483;hlo_scalar_replacement;in ForwardDNAAllOccCountNoLimit;0>
+#of Array Refs Scalar Replaced in ForwardDNAAllOccCountNoLimit at line 483=1
+ with partial sums replaced in ForwardDNAAllOccCountNoLimit at line 483
+
+
+<bwt_gen.c;441:441;hlo_reroll;ForwardDNAAllOccCountNoLimit;0>
+Loop at line:441      memset throttled memop:: small-iter loop. 
+Loop at line:441      memset throttled memop:: small-iter loop. 
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwt_gen.c;441:441;hlo_unroll;ForwardDNAAllOccCountNoLimit;0>
+Loop at line 441 completely unrolled by 4   
+
+<bwt_gen.c;453:453;hlo_unroll;ForwardDNAAllOccCountNoLimit;0>
+Loop at line 453 completely unrolled by 16   
+
+<bwt_gen.c;483:483;hlo_unroll;ForwardDNAAllOccCountNoLimit;0>
+Loop at line 483 unrolled with remainder by 2   
+
+<bwt_gen.c;644:690;IPO INLINING;BWTIncGetAbsoluteRank;0>
+INLINING REPORT: (BWTIncGetAbsoluteRank) [7/94=7.4%]
+
+  -> INLINE: BWTOccValue(682) (isz = 195) (sz = 208 (49+159))
+    -> INLINE (MANUAL): BWTOccValueExplicit(685) (isz = 33) (sz = 45 (5+40))
+    -> INLINE: ForwardDNAOccCount(684) (isz = 56) (sz = 69 (19+50))
+    -> INLINE: BackwardDNAOccCount(683) (isz = 57) (sz = 70 (21+49))
+
+
+<bwt_gen.c;644:690;IPO FORWARD SUBSTITUTION;BWTIncGetAbsoluteRank;0>
+  SUBSTITUTION: TOTAL(18):REPLACE(14)REMOVE(4)
+
+
+HPO VECTORIZER REPORT (BWTIncGetAbsoluteRank) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwt_gen.c;-1:-1;hpo_vectorization;BWTIncGetAbsoluteRank;0>
+HPO Vectorizer Report (BWTIncGetAbsoluteRank)
+
+bwt_gen.c(655:2-655:2):VEC:BWTIncGetAbsoluteRank:  LOOP WAS VECTORIZED
+bwt_gen.c(670:39-670:39):VEC:BWTIncGetAbsoluteRank:  loop was not vectorized: existence of vector dependence
+loop was not vectorized: vectorization possible but seems inefficient
+bwt_gen.c(668:3-668:3):VEC:BWTIncGetAbsoluteRank:  loop was not vectorized: not inner loop
+bwt_gen.c(666:19-666:19):VEC:BWTIncGetAbsoluteRank:  loop was not vectorized: not inner loop
+
+
+<ipo_out1.c;-1:-1;hlo;BWTIncGetAbsoluteRank;0>
+High Level Optimizer Report (BWTIncGetAbsoluteRank)
+
+<bwt_gen.c;670:670;hlo_scalar_replacement;in BWTIncGetAbsoluteRank;0>
+#of Array Refs Scalar Replaced in BWTIncGetAbsoluteRank at line 670=1
+ with partial sums replaced in BWTIncGetAbsoluteRank at line 670
+#of Array Refs Scalar Replaced in BWTIncGetAbsoluteRank at line 670=2
+ with partial sums replaced in BWTIncGetAbsoluteRank at line 670
+#of Array Refs Scalar Replaced in BWTIncGetAbsoluteRank at line 670=1
+
+
+<bwt_gen.c;655:655;hlo_reroll;BWTIncGetAbsoluteRank;0>
+Loop at line:655     memcopy(with guard) throttled memop:: small-iter loop. 
+Loop at line:655     memcopy(with guard) throttled memop:: small-iter loop. 
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwt_gen.c;670:670;hlo_unroll;BWTIncGetAbsoluteRank;0>
+Loop at line 670 unrolled with remainder by 2   
+Loop at line 670 unrolled with remainder by 2   
+
+<bwt_gen.c;951:1060;IPO INLINING;BWTIncMergeBwt;0>
+INLINING REPORT: (BWTIncMergeBwt) [8/94=8.5%]
+
+
+
+HPO VECTORIZER REPORT (BWTIncMergeBwt) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwt_gen.c;-1:-1;hpo_vectorization;BWTIncMergeBwt;0>
+HPO Vectorizer Report (BWTIncMergeBwt)
+
+bwt_gen.c(973:3-973:3):VEC:BWTIncMergeBwt:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwt_gen.c(1004:4-1004:4):VEC:BWTIncMergeBwt:  loop was not vectorized: vectorization possible but seems inefficient
+bwt_gen.c(1016:4-1016:4):VEC:BWTIncMergeBwt:  loop was not vectorized: vectorization possible but seems inefficient
+bwt_gen.c(1025:4-1025:4):VEC:BWTIncMergeBwt:  LOOP WAS VECTORIZED
+loop was not vectorized: not inner loop
+bwt_gen.c(970:2-970:2):VEC:BWTIncMergeBwt:  loop was not vectorized: not inner loop
+bwt_gen.c(1047:2-1047:2):VEC:BWTIncMergeBwt:  loop was not vectorized: existence of vector dependence
+
+
+<ipo_out1.c;-1:-1;hlo;BWTIncMergeBwt;0>
+High Level Optimizer Report (BWTIncMergeBwt)
+
+
+<bwt_gen.c;1025:1025;hlo_reroll;BWTIncMergeBwt;0>
+Loop at line:1025    memcopy generated  
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwt_gen.c;1004:1004;hlo_unroll;BWTIncMergeBwt;0>
+Loop at line 1004 unrolled with remainder by 2   
+
+<bwt_gen.c;1016:1016;hlo_unroll;BWTIncMergeBwt;0>
+Loop at line 1016 unrolled with remainder by 2   
+
+<bwt_gen.c;1047:1047;hlo_unroll;BWTIncMergeBwt;0>
+Loop at line 1047 unrolled with remainder by 2   
+bwt_gen.c(1028:5-1028:5):CG:BWTIncMergeBwt:  call to memcpy implemented as a call to optimized library version
+
+<QSufSort.c;58:99;IPO INLINING;QSufSortSuffixSort;0>
+INLINING REPORT: (QSufSortSuffixSort) [9/94=9.6%]
+
+  -> QSufSortSortSplit(3) (isz = 390) (sz = 404 (156+248))
+  -> INLINE: QSufSortBucketSort(669) (isz = 93) (sz = 104 (46+58))
+  -> INLINE: QSufSortTransform(670) (isz = 185) (sz = 204 (90+114))
+
+
+<QSufSort.c;58:99;IPO FORWARD SUBSTITUTION;QSufSortSuffixSort;0>
+  SUBSTITUTION: TOTAL(65):REPLACE(52)REMOVE(12)ADDR-TAKEN-OFF(1)
+
+
+HPO VECTORIZER REPORT (QSufSortSuffixSort) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<QSufSort.c;-1:-1;hpo_vectorization;QSufSortSuffixSort;0>
+HPO Vectorizer Report (QSufSortSuffixSort)
+
+QSufSort.c(67:21-67:21):VEC:QSufSortSuffixSort:  loop was not vectorized: unsupported loop structure
+loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP WAS VECTORIZED
+loop was not vectorized: not inner loop
+loop was not vectorized: existence of vector dependence
+loop was not vectorized: existence of vector dependence
+loop was not vectorized: existence of vector dependence
+loop was not vectorized: existence of vector dependence
+loop was not vectorized: existence of vector dependence
+loop skipped: multiversioned
+loop was not vectorized: existence of vector dependence
+QSufSort.c(69:3-69:3):VEC:QSufSortSuffixSort:  LOOP WAS VECTORIZED
+remainder loop was not vectorized: vectorization possible but seems inefficient
+loop was not vectorized: existence of vector dependence
+loop was not vectorized: unsupported loop structure
+loop was not vectorized: not inner loop
+QSufSort.c(77:3-77:3):VEC:QSufSortSuffixSort:  loop was not vectorized: unsupported loop structure
+QSufSort.c(75:2-75:2):VEC:QSufSortSuffixSort:  loop was not vectorized: unsupported loop structure
+
+
+<ipo_out1.c;-1:-1;hlo;QSufSortSuffixSort;0>
+High Level Optimizer Report (QSufSortSuffixSort)
+
+<QSufSort.c;67:67;hlo_scalar_replacement;in QSufSortSuffixSort;0>
+#of Array Refs Scalar Replaced in QSufSortSuffixSort at line 67=3
+#of Array Refs Scalar Replaced in QSufSortSuffixSort at line 67=1
+#of Array Refs Scalar Replaced in QSufSortSuffixSort at line 67=1
+#of Array Refs Scalar Replaced in QSufSortSuffixSort at line 67=1
+#of Array Refs Scalar Replaced in QSufSortSuffixSort at line 67=1
+#of Array Refs Scalar Replaced in QSufSortSuffixSort at line 67=1
+
+Loop dual-path report:
+
+<QSufSort.c;67:67;hlo;QSufSortSuffixSort;0>
+Loop at 67 -- selected for multiversion- Same-base
+
+
+<QSufSort.c;67:67;hlo_reroll;QSufSortSuffixSort;0>
+Loop at line:67       memset generated  
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<QSufSort.c;67:67;hlo_unroll;QSufSortSuffixSort;0>
+Loop at line 67 unrolled with remainder by 2   
+Loop at line 67 unrolled with remainder by 2   
+Loop at line 67 unrolled with remainder by 2   
+Loop at line 67(rt-dd-ver 1) unrolled with remainder by 2   
+Loop at line 67(rt-dd-ver 1) unrolled with remainder by 2   
+Loop at line 67(rt-dd-ver 3) unrolled with remainder by 2   
+Loop at line 67 unrolled with remainder by 2   
+
+<QSufSort.c;69:69;hlo_unroll;QSufSortSuffixSort;0>
+Loop at line 69 unrolled with remainder by 2   
+QSufSort.c(67:21-67:21):CG:QSufSortSuffixSort:  call to memset implemented as a call to optimized library version
+
+<QSufSort.c;114:191;IPO INLINING;QSufSortSortSplit;0>
+INLINING REPORT: (QSufSortSortSplit) [10/94=10.6%]
+
+  -> QSufSortSortSplit(3) (isz = 390) (sz = 404 (156+248))
+  -> QSufSortSortSplit(3) (isz = 390) (sz = 404 (156+248))
+  -> QSufSortChoosePivot(4) (isz = 142) (sz = 157 (45+112))
+  -> INLINE: QSufSortInsertSortSplit(668) (isz = 124) (sz = 137 (54+83))
+
+
+<QSufSort.c;114:191;IPO FORWARD SUBSTITUTION;QSufSortSortSplit;0>
+  SUBSTITUTION: TOTAL(40):REPLACE(31)REMOVE(9)
+
+
+HPO VECTORIZER REPORT (QSufSortSortSplit) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<QSufSort.c;-1:-1;hpo_vectorization;QSufSortSortSplit;0>
+HPO Vectorizer Report (QSufSortSortSplit)
+
+QSufSort.c(135:3-135:3):VEC:QSufSortSortSplit:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+QSufSort.c(142:3-142:3):VEC:QSufSortSortSplit:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+QSufSort.c(132:2-132:2):VEC:QSufSortSortSplit:  loop was not vectorized: unsupported loop structure
+QSufSort.c(159:2-159:2):VEC:QSufSortSortSplit:  LOOP WAS VECTORIZED
+remainder loop was not vectorized: vectorization possible but seems inefficient
+loop was not vectorized: existence of vector dependence
+loop skipped: multiversioned
+QSufSort.c(166:2-166:2):VEC:QSufSortSortSplit:  LOOP WAS VECTORIZED
+remainder loop was not vectorized: vectorization possible but seems inefficient
+loop was not vectorized: existence of vector dependence
+loop skipped: multiversioned
+QSufSort.c(184:3-184:3):VEC:QSufSortSortSplit:  LOOP WAS VECTORIZED
+REMAINDER LOOP WAS VECTORIZED
+QSufSort.c(125:3-125:3):VEC:QSufSortSortSplit:  PARTIAL LOOP WAS VECTORIZED
+PARTIAL LOOP WAS VECTORIZED
+loop was not vectorized: nonstandard loop is not a vectorization candidate
+loop was not vectorized: not inner loop
+loop was not vectorized: existence of vector dependence
+QSufSort.c(189:3-189:3):VEC:QSufSortSortSplit:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+
+
+<ipo_out1.c;-1:-1;hlo;QSufSortSortSplit;0>
+High Level Optimizer Report (QSufSortSortSplit)
+
+<QSufSort.c;159:159;hlo_scalar_replacement;in QSufSortSortSplit;0>
+#of Array Refs Scalar Replaced in QSufSortSortSplit at line 159=1
+#of Array Refs Scalar Replaced in QSufSortSortSplit at line 159=1
+
+<QSufSort.c;166:166;hlo_scalar_replacement;in QSufSortSortSplit;0>
+#of Array Refs Scalar Replaced in QSufSortSortSplit at line 166=1
+#of Array Refs Scalar Replaced in QSufSortSortSplit at line 166=1
+
+<QSufSort.c;125:125;hlo_distribution;in QSufSortSortSplit;0>
+LOOP DISTRIBUTION in QSufSortSortSplit at line 125
+LOOP DISTRIBUTION in QSufSortSortSplit at line 125
+
+<QSufSort.c;125:125;hlo_scalar_replacement;in QSufSortSortSplit;0>
+#of Array Refs Scalar Replaced in QSufSortSortSplit at line 125=1
+
+Loop dual-path report:
+
+<QSufSort.c;159:159;hlo;QSufSortSortSplit;0>
+Loop at 159 -- selected for multiversion- Same-base
+
+<QSufSort.c;166:166;hlo;QSufSortSortSplit;0>
+Loop at 166 -- selected for multiversion- Same-base
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<QSufSort.c;159:159;hlo_unroll;QSufSortSortSplit;0>
+Loop at line 159(rt-dd-ver 1) unrolled with remainder by 2   
+Loop at line 159(rt-dd-ver 3) unrolled with remainder by 2   
+
+<QSufSort.c;166:166;hlo_unroll;QSufSortSortSplit;0>
+Loop at line 166(rt-dd-ver 1) unrolled with remainder by 2   
+Loop at line 166(rt-dd-ver 3) unrolled with remainder by 2   
+
+<QSufSort.c;114:191;IPO INLINING;QSufSortSortSplit;0>
+INLINING REPORT: (QSufSortSortSplit) [10/94=10.6%]
+
+  -> QSufSortSortSplit(3) (isz = 390) (sz = 404 (156+248))
+  -> QSufSortSortSplit(3) (isz = 390) (sz = 404 (156+248))
+  -> QSufSortChoosePivot(4) (isz = 142) (sz = 157 (45+112))
+  -> INLINE: QSufSortInsertSortSplit(668) (isz = 124) (sz = 137 (54+83))
+
+
+<QSufSort.c;114:191;IPO FORWARD SUBSTITUTION;QSufSortSortSplit.V;0>
+  SUBSTITUTION: TOTAL(40):REPLACE(31)REMOVE(9)
+
+
+HPO VECTORIZER REPORT (QSufSortSortSplit.V) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<QSufSort.c;-1:-1;hpo_vectorization;QSufSortSortSplit.V;0>
+HPO Vectorizer Report (QSufSortSortSplit.V)
+
+
+
+<ipo_out1.c;-1:-1;hlo;QSufSortSortSplit.V;0>
+High Level Optimizer Report (QSufSortSortSplit.V)
+
+<QSufSort.c;125:125;hlo_distribution;in QSufSortSortSplit.V;0>
+LOOP DISTRIBUTION in QSufSortSortSplit.V at line 125
+LOOP DISTRIBUTION in QSufSortSortSplit.V at line 125
+
+<QSufSort.c;125:125;hlo_scalar_replacement;in QSufSortSortSplit.V;0>
+#of Array Refs Scalar Replaced in QSufSortSortSplit.V at line 125=1
+
+<QSufSort.c;159:159;hlo_scalar_replacement;in QSufSortSortSplit.V;0>
+#of Array Refs Scalar Replaced in QSufSortSortSplit.V at line 159=1
+#of Array Refs Scalar Replaced in QSufSortSortSplit.V at line 159=1
+
+<QSufSort.c;166:166;hlo_scalar_replacement;in QSufSortSortSplit.V;0>
+#of Array Refs Scalar Replaced in QSufSortSortSplit.V at line 166=1
+#of Array Refs Scalar Replaced in QSufSortSortSplit.V at line 166=1
+
+Loop dual-path report:
+
+<QSufSort.c;159:159;hlo;QSufSortSortSplit.V;0>
+Loop at 159 -- selected for multiversion- Same-base
+
+<QSufSort.c;166:166;hlo;QSufSortSortSplit.V;0>
+Loop at 166 -- selected for multiversion- Same-base
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<QSufSort.c;159:159;hlo_unroll;QSufSortSortSplit.V;0>
+Loop at line 159(rt-dd-ver 1) unrolled with remainder by 2   
+Loop at line 159(rt-dd-ver 3) unrolled with remainder by 2   
+
+<QSufSort.c;166:166;hlo_unroll;QSufSortSortSplit.V;0>
+Loop at line 166(rt-dd-ver 1) unrolled with remainder by 2   
+Loop at line 166(rt-dd-ver 3) unrolled with remainder by 2   
+
+<QSufSort.c;114:191;IPO INLINING;QSufSortSortSplit;0>
+INLINING REPORT: (QSufSortSortSplit) [10/94=10.6%]
+
+  -> QSufSortSortSplit(3) (isz = 390) (sz = 404 (156+248))
+  -> QSufSortSortSplit(3) (isz = 390) (sz = 404 (156+248))
+  -> QSufSortChoosePivot(4) (isz = 142) (sz = 157 (45+112))
+  -> INLINE: QSufSortInsertSortSplit(668) (isz = 124) (sz = 137 (54+83))
+
+
+<QSufSort.c;114:191;IPO FORWARD SUBSTITUTION;QSufSortSortSplit.A;0>
+  SUBSTITUTION: TOTAL(40):REPLACE(31)REMOVE(9)
+
+
+HPO VECTORIZER REPORT (QSufSortSortSplit.A) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<QSufSort.c;-1:-1;hpo_vectorization;QSufSortSortSplit.A;0>
+HPO Vectorizer Report (QSufSortSortSplit.A)
+
+
+
+<ipo_out1.c;-1:-1;hlo;QSufSortSortSplit.A;0>
+High Level Optimizer Report (QSufSortSortSplit.A)
+
+<QSufSort.c;125:125;hlo_distribution;in QSufSortSortSplit.A;0>
+LOOP DISTRIBUTION in QSufSortSortSplit.A at line 125
+LOOP DISTRIBUTION in QSufSortSortSplit.A at line 125
+
+<QSufSort.c;125:125;hlo_scalar_replacement;in QSufSortSortSplit.A;0>
+#of Array Refs Scalar Replaced in QSufSortSortSplit.A at line 125=1
+
+<QSufSort.c;159:159;hlo_scalar_replacement;in QSufSortSortSplit.A;0>
+#of Array Refs Scalar Replaced in QSufSortSortSplit.A at line 159=1
+
+<QSufSort.c;166:166;hlo_scalar_replacement;in QSufSortSortSplit.A;0>
+#of Array Refs Scalar Replaced in QSufSortSortSplit.A at line 166=1
+
+Loop dual-path report:
+
+<QSufSort.c;159:159;hlo;QSufSortSortSplit.A;0>
+Loop at 159 -- selected for multiversion- Same-base
+
+<QSufSort.c;166:166;hlo;QSufSortSortSplit.A;0>
+Loop at 166 -- selected for multiversion- Same-base
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<QSufSort.c;159:159;hlo_unroll;QSufSortSortSplit.A;0>
+Loop at line 159(rt-dd-ver 1) unrolled with remainder by 2   
+Loop at line 159(rt-dd-ver 3) unrolled with remainder by 2   
+
+<QSufSort.c;166:166;hlo_unroll;QSufSortSortSplit.A;0>
+Loop at line 166(rt-dd-ver 1) unrolled with remainder by 2   
+Loop at line 166(rt-dd-ver 3) unrolled with remainder by 2   
+
+<QSufSort.c;195:221;IPO INLINING;QSufSortChoosePivot;0>
+INLINING REPORT: (QSufSortChoosePivot) [11/94=11.7%]
+
+
+
+<bwt_gen.c;1089:1296;IPO INLINING;BWTGenerateOccValueFromBwt;0>
+INLINING REPORT: (BWTGenerateOccValueFromBwt) [12/94=12.8%]
+
+
+
+HPO VECTORIZER REPORT (BWTGenerateOccValueFromBwt) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwt_gen.c;-1:-1;hpo_vectorization;BWTGenerateOccValueFromBwt;0>
+HPO Vectorizer Report (BWTGenerateOccValueFromBwt)
+
+bwt_gen.c(1111:2-1111:2):VEC:BWTGenerateOccValueFromBwt:  loop was not vectorized: vectorization possible but seems inefficient
+bwt_gen.c(1123:4-1123:4):VEC:BWTGenerateOccValueFromBwt:  BLOCK WAS VECTORIZED
+bwt_gen.c(1128:4-1128:4):VEC:BWTGenerateOccValueFromBwt:  loop was not vectorized: vectorization possible but seems inefficient
+bwt_gen.c(1154:4-1154:4):VEC:BWTGenerateOccValueFromBwt:  BLOCK WAS VECTORIZED
+bwt_gen.c(1162:4-1162:4):VEC:BWTGenerateOccValueFromBwt:  loop was not vectorized: vectorization possible but seems inefficient
+bwt_gen.c(1120:3-1120:3):VEC:BWTGenerateOccValueFromBwt:  loop was not vectorized: not inner loop
+bwt_gen.c(1118:2-1118:2):VEC:BWTGenerateOccValueFromBwt:  loop was not vectorized: not inner loop
+bwt_gen.c(1199:3-1199:3):VEC:BWTGenerateOccValueFromBwt:  BLOCK WAS VECTORIZED
+bwt_gen.c(1203:3-1203:3):VEC:BWTGenerateOccValueFromBwt:  loop was not vectorized: vectorization possible but seems inefficient
+bwt_gen.c(1229:3-1229:3):VEC:BWTGenerateOccValueFromBwt:  BLOCK WAS VECTORIZED
+bwt_gen.c(1236:3-1236:3):VEC:BWTGenerateOccValueFromBwt:  loop was not vectorized: vectorization possible but seems inefficient
+bwt_gen.c(1197:2-1197:2):VEC:BWTGenerateOccValueFromBwt:  loop was not vectorized: not inner loop
+bwt_gen.c(1261:2-1261:2):VEC:BWTGenerateOccValueFromBwt:  BLOCK WAS VECTORIZED
+bwt_gen.c(1267:3-1267:3):VEC:BWTGenerateOccValueFromBwt:  loop was not vectorized: vectorization possible but seems inefficient
+
+
+<ipo_out1.c;-1:-1;hlo;BWTGenerateOccValueFromBwt;0>
+High Level Optimizer Report (BWTGenerateOccValueFromBwt)
+
+
+<bwt_gen.c;1111:1111;hlo_reroll;BWTGenerateOccValueFromBwt;0>
+Loop at line:1111     memset throttled memop:: small-iter loop. 
+
+<bwt_gen.c;1123:1123;hlo_reroll;BWTGenerateOccValueFromBwt;0>
+Loop at line:1123    memcopy(with guard) throttled memop:: small-iter loop. 
+
+<bwt_gen.c;1154:1154;hlo_reroll;BWTGenerateOccValueFromBwt;0>
+Loop at line:1154    memcopy(with guard) throttled memop:: small-iter loop. 
+
+<bwt_gen.c;1199:1199;hlo_reroll;BWTGenerateOccValueFromBwt;0>
+Loop at line:1199    memcopy(with guard) throttled memop:: small-iter loop. 
+
+<bwt_gen.c;1229:1229;hlo_reroll;BWTGenerateOccValueFromBwt;0>
+Loop at line:1229    memcopy(with guard) throttled memop:: small-iter loop. 
+
+<bwt_gen.c;1261:1261;hlo_reroll;BWTGenerateOccValueFromBwt;0>
+Loop at line:1261    memcopy(with guard) throttled memop:: small-iter loop. 
+
+<bwt_gen.c;1111:1111;hlo_reroll;BWTGenerateOccValueFromBwt;0>
+Loop at line:1111     memset throttled memop:: small-iter loop. 
+
+<bwt_gen.c;1123:1123;hlo_reroll;BWTGenerateOccValueFromBwt;0>
+Loop at line:1123    memcopy(with guard) throttled memop:: small-iter loop. 
+
+<bwt_gen.c;1154:1154;hlo_reroll;BWTGenerateOccValueFromBwt;0>
+Loop at line:1154    memcopy(with guard) throttled memop:: small-iter loop. 
+
+<bwt_gen.c;1199:1199;hlo_reroll;BWTGenerateOccValueFromBwt;0>
+Loop at line:1199    memcopy(with guard) throttled memop:: small-iter loop. 
+
+<bwt_gen.c;1229:1229;hlo_reroll;BWTGenerateOccValueFromBwt;0>
+Loop at line:1229    memcopy(with guard) throttled memop:: small-iter loop. 
+
+<bwt_gen.c;1261:1261;hlo_reroll;BWTGenerateOccValueFromBwt;0>
+Loop at line:1261    memcopy(with guard) throttled memop:: small-iter loop. 
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwt_gen.c;1111:1111;hlo_unroll;BWTGenerateOccValueFromBwt;0>
+Loop at line 1111 completely unrolled by 4   
+
+<bwt_gen.c;1128:1128;hlo_unroll;BWTGenerateOccValueFromBwt;0>
+Loop at line 1128 completely unrolled by 16   
+
+<bwt_gen.c;1162:1162;hlo_unroll;BWTGenerateOccValueFromBwt;0>
+Loop at line 1162 completely unrolled by 16   
+
+<bwt_gen.c;1203:1203;hlo_unroll;BWTGenerateOccValueFromBwt;0>
+Loop at line 1203 completely unrolled by 16   
+
+<bwt_gen.c;1236:1236;hlo_unroll;BWTGenerateOccValueFromBwt;0>
+Loop at line 1236 completely unrolled by 16   
+
+<bwt_gen.c;1267:1267;hlo_unroll;BWTGenerateOccValueFromBwt;0>
+Loop at line 1267 completely unrolled by 16   
+
+<bwt_gen.c;163:204;IPO INLINING;BWTIncSetBuildSizeAndTextAddr;0>
+INLINING REPORT: (BWTIncSetBuildSizeAndTextAddr) [13/94=13.8%]
+
+  -> exit(EXTERN)
+  -> exit(EXTERN)
+  -> fprintf(EXTERN)
+  -> fprintf(EXTERN)
+
+
+<bwt_gen.c;354:382;IPO INLINING;BWTIncCreate;0>
+INLINING REPORT: (BWTIncCreate) [14/94=14.9%]
+
+  -> wrap_calloc(EXTERN)
+  -> fprintf(EXTERN)
+  -> INLINE: BWTOccValueMinorSizeInWord(686) (isz = 5) (sz = 12 (3+9))
+  -> INLINE: BWTResidentSizeInWord(672) (isz = 4) (sz = 11 (3+8))
+  -> wrap_calloc(EXTERN)
+  -> initializeVAL_bg(10) (isz = 10) (sz = 19 (10+9))
+  -> wrap_calloc(EXTERN)
+  -> INLINE: BWTCreate(690) (isz = 114) (sz = 123 (34+89))
+    -> wrap_calloc(EXTERN)
+    -> wrap_calloc(EXTERN)
+    -> initializeVAL_bg(10) (isz = 10) (sz = 19 (10+9))
+    -> wrap_calloc(EXTERN)
+    -> INLINE: BWTOccValueMajorSizeInWord(692) (isz = 6) (sz = 13 (3+10))
+    -> wrap_calloc(EXTERN)
+    -> INLINE: GenerateDNAOccCountTable(691) (isz = 34) (sz = 39 (17+22))
+  -> wrap_calloc(EXTERN)
+
+
+<bwt_gen.c;354:382;IPO FORWARD SUBSTITUTION;BWTIncCreate;0>
+  SUBSTITUTION: TOTAL(40):REPLACE(33)REMOVE(7)
+
+
+HPO VECTORIZER REPORT (BWTIncCreate) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwt_gen.c;-1:-1;hpo_vectorization;BWTIncCreate;0>
+HPO Vectorizer Report (BWTIncCreate)
+
+bwt_gen.c(363:16-363:16):VEC:BWTIncCreate:  loop was not vectorized: loop was transformed to memset or memcpy
+loop was not vectorized: vectorization possible but seems inefficient
+bwt_gen.c(371:2-371:2):VEC:BWTIncCreate:  loop was not vectorized: existence of vector dependence
+
+
+<ipo_out1.c;-1:-1;hlo;BWTIncCreate;0>
+High Level Optimizer Report (BWTIncCreate)
+
+<bwt_gen.c;363:363;hlo_distribution;in BWTIncCreate;0>
+LOOP DISTRIBUTION in BWTIncCreate at line 363
+
+<bwt_gen.c;363:363;hlo_scalar_replacement;in BWTIncCreate;0>
+#of Array Refs Scalar Replaced in BWTIncCreate at line 363=14
+
+
+<bwt_gen.c;363:363;hlo_reroll;BWTIncCreate;0>
+Loop at line:363      memset generated  
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwt_gen.c;363:363;hlo_unroll;BWTIncCreate;0>
+Loop at line 363 completely unrolled by 8    (pre-vector) 
+
+<bwt_gen.c;371:371;hlo_unroll;BWTIncCreate;0>
+Loop at line 371 completely unrolled by 16   
+bwt_gen.c(363:16-363:16):CG:BWTIncCreate:  call to memset implemented as a call to optimized library version
+
+<bwtgap.c;111:263;IPO INLINING;bwt_match_gap;0>
+INLINING REPORT: (bwt_match_gap) [15/94=16.0%]
+
+  -> memset(EXTERN)
+  -> wrap_realloc(EXTERN)
+  -> INLINE (MANUAL): gap_shadow(621) (isz = 37) (sz = 50 (17+33))
+  -> INLINE (MANUAL): gap_push(628) (isz = 91) (sz = 118 (28+90))
+    -> wrap_realloc(EXTERN)
+  -> INLINE (MANUAL): gap_push(627) (isz = 91) (sz = 118 (28+90))
+    -> wrap_realloc(EXTERN)
+  -> INLINE (MANUAL): gap_push(626) (isz = 91) (sz = 118 (28+90))
+    -> wrap_realloc(EXTERN)
+  -> INLINE (MANUAL): gap_push(625) (isz = 91) (sz = 118 (28+90))
+    -> wrap_realloc(EXTERN)
+  -> INLINE (MANUAL): gap_push(624) (isz = 91) (sz = 118 (28+90))
+    -> wrap_realloc(EXTERN)
+  -> INLINE (MANUAL): gap_push(623) (isz = 91) (sz = 118 (28+90))
+    -> wrap_realloc(EXTERN)
+  -> INLINE (MANUAL): int_log2(629) (isz = 39) (sz = 46 (17+29))
+  -> bwt_match_exact_alt(EXTERN)
+  -> bwt_2occ4(EXTERN)
+  -> INLINE (MANUAL): gap_pop(630) (isz = 62) (sz = 69 (29+40))
+  -> INLINE (MANUAL): gap_push(622) (isz = 91) (sz = 118 (28+90))
+    -> wrap_realloc(EXTERN)
+  -> INLINE: gap_reset_stack(631) (isz = 20) (sz = 25 (12+13))
+  -> wrap_calloc(EXTERN)
+
+
+<bwtgap.c;111:263;IPO FORWARD SUBSTITUTION;bwt_match_gap;0>
+  SUBSTITUTION: TOTAL(117):REPLACE(76)REMOVE(40)ADDR-TAKEN-OFF(1)
+
+
+HPO VECTORIZER REPORT (bwt_match_gap) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwtgap.c;-1:-1;hpo_vectorization;bwt_match_gap;0>
+HPO Vectorizer Report (bwt_match_gap)
+
+bwtgap.c(122:2-122:2):VEC:bwt_match_gap:  loop was not vectorized: vectorization possible but seems inefficient
+bwtgap.c(130:2-130:2):VEC:bwt_match_gap:  loop was not vectorized: unsupported loop structure
+bwtgap.c(140:3-140:3):VEC:bwt_match_gap:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwtgap.c(177:5-177:5):VEC:bwt_match_gap:  loop was not vectorized: unsupported loop structure
+bwtgap.c(183:5-183:5):VEC:bwt_match_gap:  loop was not vectorized: existence of vector dependence
+bwtgap.c(223:6-223:6):VEC:bwt_match_gap:  loop was not vectorized: existence of vector dependence
+bwtgap.c(235:7-235:7):VEC:bwt_match_gap:  loop was not vectorized: existence of vector dependence
+bwtgap.c(246:4-246:4):VEC:bwt_match_gap:  loop was not vectorized: existence of vector dependence
+bwtgap.c(133:2-133:2):VEC:bwt_match_gap:  loop was not vectorized: not inner loop
+
+
+<ipo_out1.c;-1:-1;hlo;bwt_match_gap;0>
+High Level Optimizer Report (bwt_match_gap)
+
+Loopnest Preprocessing Report:
+
+<bwtgap.c;122:122;hlo;bwt_match_gap;0>
+Preprocess Loopnests: Transforming conditional reduction statement @Line<123> in Loop @Line<122>
+
+
+<bwtgap.c;130:130;hlo_linear_trans;bwt_match_gap;0>
+Poor memory locality: Array of structurese detected
+Advice: Replacing Array of Structures by Structure of Arrays might help loopnest at lines: 130 
+
+<bwtgap.c;140:140;hlo_linear_trans;bwt_match_gap;0>
+Poor memory locality: Array of structurese detected
+Advice: Replacing Array of Structures by Structure of Arrays might help loopnest at lines: 140 
+
+<bwtgap.c;246:246;hlo_linear_trans;bwt_match_gap;0>
+Poor memory locality: Array of structurese detected
+Advice: Replacing Array of Structures by Structure of Arrays might help loopnest at lines: 246 
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwtgap.c;122:122;hlo_unroll;bwt_match_gap;0>
+Loop at line 122 unrolled with remainder by 2   
+
+<bwtgap.c;183:183;hlo_unroll;bwt_match_gap;0>
+Loop at line 183 unrolled with remainder by 2   
+
+<bwtgap.c;223:223;hlo_unroll;bwt_match_gap;0>
+Loop at line 223 completely unrolled by 4   
+
+<bwtgap.c;235:235;hlo_unroll;bwt_match_gap;0>
+Loop at line 235 completely unrolled by 4   
+bwtgap.c(140:3-140:3):CG:bwt_match_gap:  call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (1, 0), and destination (alignment, offset): (16, 0)
+bwtgap.c(187:6-187:6):CG:bwt_match_gap:  call to memset implemented as a call to optimized library version
+
+<bwaseqio.c;50:59;IPO INLINING;bwa_seq_close..0;0>
+INLINING REPORT: (bwa_seq_close..0) [16/94=17.0%]
+
+  -> INLINE: bamlite_gzclose(717) (isz = 23) (sz = 30 (12+18))
+    -> zError(EXTERN)
+    -> strerror(EXTERN)
+    -> __errno_location(EXTERN)
+    -> fprintf(EXTERN)
+    -> gzclose(EXTERN)
+  -> err_gzclose(EXTERN)
+  -> kseq_destroy(EXTERN)
+  -> free(EXTERN)
+  -> _err_fatal_simple(EXTERN)
+
+
+<bwaseqio.c;50:59;IPO FORWARD SUBSTITUTION;bwa_seq_close..0;0>
+  SUBSTITUTION: TOTAL(10):REPLACE(7)REMOVE(3)
+
+
+<bwase.c;505:573;IPO INLINING;bwa_sai2sam_se_core;0>
+INLINING REPORT: (bwa_sai2sam_se_core) [17/94=18.1%]
+
+  -> exit(EXTERN)
+  -> free(EXTERN)
+  -> err_fclose(EXTERN)
+  -> bwa_print_sam1(69) (isz = 1239) (sz = 1252 (313+939))
+  -> bwa_aln2seq_core(55) (isz = 433) (sz = 448 (114+334))
+  -> err_fread_noeof(EXTERN)
+  -> wrap_realloc(EXTERN)
+  -> err_fread_noeof(EXTERN)
+  -> clock(EXTERN)
+  -> fprintf(EXTERN)
+  -> bwa_cal_pac_pos(60) (isz = 281) (sz = 296 (96+200))
+  -> clock(EXTERN)
+  -> fprintf(EXTERN)
+  -> clock(EXTERN)
+  -> fprintf(EXTERN)
+  -> bwa_refine_gapped(64) (isz = 1005) (sz = 1016 (225+791))
+  -> clock(EXTERN)
+  -> fprintf(EXTERN)
+  -> clock(EXTERN)
+  -> fprintf(EXTERN)
+  -> clock(EXTERN)
+  -> fprintf(EXTERN)
+  -> INLINE: bwa_free_read_seq(608) (isz = 60) (sz = 67 (28+39))
+    -> free(EXTERN)
+    -> free(EXTERN)
+    -> free(EXTERN)
+    -> free(EXTERN)
+    -> free(EXTERN)
+    -> free(EXTERN)
+    -> free(EXTERN)
+    -> free(EXTERN)
+    -> free(EXTERN)
+    -> free(EXTERN)
+  -> fprintf(EXTERN)
+  -> bwa_read_seq(81) (isz = 721) (sz = 739 (234+505))
+  -> bns_destroy(EXTERN)
+  -> INLINE (PARTIAL): bwa_seq_close(715) (isz = 8) (sz = 8 (4+4))
+    -> PI_CLONE bwa_seq_close..0(716) (isz = 0) (sz = 0 (0+0))
+  -> bwa_read_seq(81) (isz = 721) (sz = 739 (234+505))
+  -> bwa_open_reads(99) (isz = 51) (sz = 60 (21+39))
+  -> bwa_print_sam_hdr(EXTERN)
+  -> err_fread_noeof(EXTERN)
+  -> fprintf(EXTERN)
+  -> strncmp(EXTERN)
+  -> err_fread_noeof(EXTERN)
+  -> err_xopen_core(EXTERN)
+  -> srand48(EXTERN)
+  -> bns_restore(EXTERN)
+  -> bwase_initialize(70) (isz = 15) (sz = 18 (9+9))
+
+
+<bwase.c;505:573;IPO FORWARD SUBSTITUTION;bwa_sai2sam_se_core;0>
+  SUBSTITUTION: TOTAL(20):REPLACE(16)REMOVE(4)
+
+
+HPO VECTORIZER REPORT (bwa_sai2sam_se_core) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;bwa_sai2sam_se_core;0>
+HPO Vectorizer Report (bwa_sai2sam_se_core)
+
+bwase.c(539:3-539:3):VEC:bwa_sai2sam_se_core:  loop was not vectorized: unsupported loop structure
+bwase.c(560:3-560:3):VEC:bwa_sai2sam_se_core:  loop was not vectorized: unsupported loop structure
+bwase.c(564:3-564:3):VEC:bwa_sai2sam_se_core:  vectorization support: call to function free cannot be vectorized
+loop was not vectorized: statement cannot be vectorized
+loop was not vectorized: not inner loop
+bwase.c(534:2-534:2):VEC:bwa_sai2sam_se_core:  loop was not vectorized: not inner loop
+
+
+<ipo_out1.c;-1:-1;hlo;bwa_sai2sam_se_core;0>
+High Level Optimizer Report (bwa_sai2sam_se_core)
+
+
+<bwase.c;564:564;hlo_linear_trans;bwa_sai2sam_se_core;0>
+Poor memory locality: Array of structurese detected
+Advice: Replacing Array of Structures by Structure of Arrays might help loopnest at lines: 564 
+
+<bwase.c;285:328;IPO INLINING;bwa_refine_gapped;0>
+INLINING REPORT: (bwa_refine_gapped) [18/94=19.1%]
+
+  -> INLINE: bwa_correct_trimmed(601) (isz = 220) (sz = 226 (34+192))
+    -> wrap_calloc(EXTERN)
+    -> wrap_realloc(EXTERN)
+    -> memmove(EXTERN)
+    -> wrap_calloc(EXTERN)
+    -> wrap_realloc(EXTERN)
+  -> free(EXTERN)
+  -> bwa_cal_md1(62) (isz = 527) (sz = 550 (136+414))
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> INLINE: bwa_refine_gapped_core(607) (isz = 182) (sz = 201 (40+161))
+    -> bwa_fill_scmat(EXTERN)
+    -> bns_get_seq(EXTERN)
+    -> __assert_fail(EXTERN)
+    -> __assert_fail(EXTERN)
+    -> ksw_global(EXTERN)
+    -> __assert_fail(EXTERN)
+    -> memmove(EXTERN)
+    -> free(EXTERN)
+  -> INLINE: bwa_refine_gapped_core(606) (isz = 182) (sz = 201 (40+161))
+    -> bwa_fill_scmat(EXTERN)
+    -> bns_get_seq(EXTERN)
+    -> __assert_fail(EXTERN)
+    -> __assert_fail(EXTERN)
+    -> ksw_global(EXTERN)
+    -> __assert_fail(EXTERN)
+    -> memmove(EXTERN)
+    -> free(EXTERN)
+  -> INLINE: seq_reverse(523) (isz = 107) (sz = 116 (36+80))
+  -> err_fseek(EXTERN)
+  -> err_fread_noeof(EXTERN)
+  -> wrap_calloc(EXTERN)
+  -> wrap_calloc(EXTERN)
+
+
+<bwase.c;285:328;IPO FORWARD SUBSTITUTION;bwa_refine_gapped;0>
+  SUBSTITUTION: TOTAL(27):REPLACE(20)REMOVE(7)
+
+
+HPO VECTORIZER REPORT (bwa_refine_gapped) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;bwa_refine_gapped;0>
+HPO Vectorizer Report (bwa_refine_gapped)
+
+bwase.c(297:3-297:3):VEC:bwa_refine_gapped:  loop was not vectorized: existence of vector dependence
+loop skipped: multiversioned
+bwase.c(302:16-302:16):VEC:bwa_refine_gapped:  loop was not vectorized: unsupported loop structure
+bwase.c(298:3-298:3):VEC:bwa_refine_gapped:  loop was not vectorized: not inner loop
+bwase.c(309:14-309:14):VEC:bwa_refine_gapped:  loop was not vectorized: unsupported loop structure
+bwase.c(314:2-314:2):VEC:bwa_refine_gapped:  loop was not vectorized: existence of vector dependence
+bwase.c(325:2-325:2):VEC:bwa_refine_gapped:  loop was not vectorized: existence of vector dependence
+bwase.c(295:2-295:2):VEC:bwa_refine_gapped:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+
+
+<ipo_out1.c;-1:-1;hlo;bwa_refine_gapped;0>
+High Level Optimizer Report (bwa_refine_gapped)
+
+
+<bwase.c;314:314;hlo_linear_trans;bwa_refine_gapped;0>
+Poor memory locality: Array of structurese detected
+Advice: Replacing Array of Structures by Structure of Arrays might help loopnest at lines: 314 
+
+<bwase.c;325:325;hlo_linear_trans;bwa_refine_gapped;0>
+Poor memory locality: Array of structurese detected
+Advice: Replacing Array of Structures by Structure of Arrays might help loopnest at lines: 325 
+
+Loop dual-path report:
+
+<bwase.c;297:297;hlo;bwa_refine_gapped;0>
+Loop at 297 -- selected for multiversion- Same-base
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwase.c;297:297;hlo_unroll;bwa_refine_gapped;0>
+Loop at line 297(rt-dd-ver 1) unrolled with remainder by 2   
+Loop at line 297(rt-dd-ver 2) unrolled with remainder by 2   
+
+<bwase.c;314:314;hlo_unroll;bwa_refine_gapped;0>
+Loop at line 314 unrolled with remainder by 2   
+bwase.c(302:16-302:16):CG:bwa_refine_gapped:  call to memmove implemented as a call to optimized library version
+bwase.c(304:19-304:19):CG:bwa_refine_gapped:  call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (1, 0), and destination (alignment, offset): (1, 0)
+bwase.c(305:11-305:11):CG:bwa_refine_gapped:  call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (1, 0), and destination (alignment, offset): (1, 0)
+bwase.c(309:14-309:14):CG:bwa_refine_gapped:  call to memmove implemented as a call to optimized library version
+bwase.c(325:31-325:31):CG:bwa_refine_gapped:  call to memmove implemented as a call to optimized library version
+
+<bwase.c;200:245;IPO INLINING;bwa_cal_md1;0>
+INLINING REPORT: (bwa_cal_md1) [19/94=20.2%]
+
+  -> INLINE (MANUAL): kputc(605) (isz = 74) (sz = 83 (17+66))
+    -> wrap_realloc(EXTERN)
+  -> INLINE (MANUAL): kputc(604) (isz = 74) (sz = 83 (17+66))
+    -> wrap_realloc(EXTERN)
+  -> INLINE (MANUAL): kputc(603) (isz = 74) (sz = 83 (17+66))
+    -> wrap_realloc(EXTERN)
+  -> ksprintf(EXTERN)
+  -> ksprintf(EXTERN)
+  -> INLINE (MANUAL): kputc(602) (isz = 74) (sz = 83 (17+66))
+    -> wrap_realloc(EXTERN)
+  -> ksprintf(EXTERN)
+  -> wrap_strdup(EXTERN)
+  -> ksprintf(EXTERN)
+
+
+<bwase.c;200:245;IPO FORWARD SUBSTITUTION;bwa_cal_md1;0>
+  SUBSTITUTION: TOTAL(70):REPLACE(61)REMOVE(9)
+
+
+HPO VECTORIZER REPORT (bwa_cal_md1) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;bwa_cal_md1;0>
+HPO Vectorizer Report (bwa_cal_md1)
+
+bwase.c(210:5-210:5):VEC:bwa_cal_md1:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwase.c(226:5-226:5):VEC:bwa_cal_md1:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwase.c(207:3-207:3):VEC:bwa_cal_md1:  loop was not vectorized: not inner loop
+bwase.c(233:3-233:3):VEC:bwa_cal_md1:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+
+<bwase.c;144:164;IPO INLINING;bwa_cal_pac_pos;0>
+INLINING REPORT: (bwa_cal_pac_pos) [20/94=21.3%]
+
+  -> INLINE: bwa_sa2pos(584) (isz = 49) (sz = 65 (25+40))
+    -> bwt_sa(EXTERN)
+    -> INLINE (MANUAL): bns_depos(585) (isz = 12) (sz = 23 (9+14))
+  -> INLINE: bwa_cal_pac_pos_core(616) (isz = 116) (sz = 130 (38+92))
+    -> INLINE: bwa_cal_maxdiff(617) (isz = 28) (sz = 40 (17+23))
+      -> exp(EXTERN)
+    -> bwa_approx_mapQ(57) (isz = 36) (sz = 49 (15+34))
+    -> bwa_sa2pos(58) (isz = 49) (sz = 65 (25+40))
+    -> bwa_approx_mapQ(57) (isz = 36) (sz = 49 (15+34))
+  -> bwt_destroy(EXTERN)
+  -> bwt_restore_sa(EXTERN)
+  -> strcat(EXTERN)
+  -> strcpy(EXTERN)
+  -> bwt_restore_bwt(EXTERN)
+  -> strcat(EXTERN)
+  -> strcpy(EXTERN)
+
+
+<bwase.c;144:164;IPO FORWARD SUBSTITUTION;bwa_cal_pac_pos;0>
+  SUBSTITUTION: TOTAL(51):REPLACE(36)REMOVE(13)ADDR-TAKEN-OFF(2)
+
+
+HPO VECTORIZER REPORT (bwa_cal_pac_pos) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;bwa_cal_pac_pos;0>
+HPO Vectorizer Report (bwa_cal_pac_pos)
+
+bwase.c(153:3-153:3):VEC:bwa_cal_pac_pos:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwase.c(154:3-154:3):VEC:bwa_cal_pac_pos:  loop was not vectorized: unsupported loop structure
+bwase.c(151:2-151:2):VEC:bwa_cal_pac_pos:  loop was not vectorized: not inner loop
+bwase.c(159:5-159:5):CG:bwa_cal_pac_pos:  call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (1, 0), and destination (alignment, offset): (1, 0)
+
+<bwase.c;113:121;IPO INLINING;bwa_sa2pos;0>
+INLINING REPORT: (bwa_sa2pos) [21/94=22.3%]
+
+  -> INLINE (MANUAL): bns_depos(583) (isz = 12) (sz = 23 (9+14))
+  -> bwt_sa(EXTERN)
+
+
+<bwase.c;113:121;IPO FORWARD SUBSTITUTION;bwa_sa2pos;0>
+  SUBSTITUTION: TOTAL(6):REPLACE(3)REMOVE(2)ADDR-TAKEN-OFF(1)
+
+
+<bwase.c;102:109;IPO INLINING;bwa_approx_mapQ;0>
+INLINING REPORT: (bwa_approx_mapQ) [22/94=23.4%]
+
+
+
+<bwase.c;384:496;IPO INLINING;bwa_print_sam1;0>
+INLINING REPORT: (bwa_print_sam1) [23/94=24.5%]
+
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> bns_cnt_ambi(EXTERN)
+  -> INLINE: pos_end_multi(522) (isz = 43) (sz = 53 (15+38))
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> INLINE: seq_reverse(525) (isz = 107) (sz = 116 (36+80))
+  -> pos_5(67) (isz = 61) (sz = 69 (19+50))
+  -> err_printf(EXTERN)
+  -> INLINE: pos_end(536) (isz = 40) (sz = 48 (15+33))
+  -> bns_cnt_ambi(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> bns_cnt_ambi(EXTERN)
+  -> err_printf(EXTERN)
+  -> pos_5(67) (isz = 61) (sz = 69 (19+50))
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> INLINE: bwa_print_seq(538) (isz = 102) (sz = 109 (42+67))
+    -> err_fwrite(EXTERN)
+    -> err_fwrite(EXTERN)
+  -> err_fputc(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_fputc(EXTERN)
+  -> err_fputc(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> INLINE: seq_reverse(524) (isz = 107) (sz = 116 (36+80))
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_printf(EXTERN)
+  -> err_fputc(EXTERN)
+  -> INLINE: bwa_print_seq(537) (isz = 102) (sz = 109 (42+67))
+    -> err_fwrite(EXTERN)
+    -> err_fwrite(EXTERN)
+  -> err_printf(EXTERN)
+
+
+<bwase.c;384:496;IPO FORWARD SUBSTITUTION;bwa_print_sam1;0>
+  SUBSTITUTION: TOTAL(41):REPLACE(33)REMOVE(8)
+
+
+HPO VECTORIZER REPORT (bwa_print_sam1) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;bwa_print_sam1;0>
+HPO Vectorizer Report (bwa_print_sam1)
+
+bwase.c(485:3-485:3):VEC:bwa_print_sam1:  loop was not vectorized: existence of vector dependence
+loop was not vectorized: unsupported loop structure
+loop was not vectorized: existence of vector dependence
+loop was not vectorized: not inner loop
+bwase.c(488:19-488:19):VEC:bwa_print_sam1:  loop was not vectorized: existence of vector dependence
+loop skipped: multiversioned
+bwase.c(395:14-395:14):VEC:bwa_print_sam1:  loop was not vectorized: vectorization possible but seems inefficient
+bwase.c(414:4-414:4):VEC:bwa_print_sam1:  loop was not vectorized: unsupported loop structure
+bwase.c(434:3-434:3):VEC:bwa_print_sam1:  loop was not vectorized: existence of vector dependence
+loop was not vectorized: unsupported loop structure
+loop was not vectorized: existence of vector dependence
+loop was not vectorized: not inner loop
+bwase.c(437:19-437:19):VEC:bwa_print_sam1:  loop was not vectorized: existence of vector dependence
+loop skipped: multiversioned
+bwase.c(465:10-465:10):VEC:bwa_print_sam1:  loop was not vectorized: vectorization possible but seems inefficient
+bwase.c(470:7-470:7):VEC:bwa_print_sam1:  loop was not vectorized: unsupported loop structure
+bwase.c(462:5-462:5):VEC:bwa_print_sam1:  loop was not vectorized: unsupported loop structure
+
+
+<ipo_out1.c;-1:-1;hlo;bwa_print_sam1;0>
+High Level Optimizer Report (bwa_print_sam1)
+
+<bwase.c;470:470;hlo_scalar_replacement;in bwa_print_sam1;0>
+#of Array Refs Scalar Replaced in bwa_print_sam1 at line 470=1
+
+Loopnest Preprocessing Report:
+
+<bwase.c;395:395;hlo;bwa_print_sam1;0>
+Preprocess Loopnests: Transforming conditional reduction statement @Line<395> in Loop @Line<395>
+
+<bwase.c;465:465;hlo;bwa_print_sam1;0>
+Preprocess Loopnests: Transforming conditional reduction statement @Line<465> in Loop @Line<465>
+
+Loop dual-path report:
+
+<bwase.c;488:488;hlo;bwa_print_sam1;0>
+Loop at 488 -- selected for multiversion- Same-base
+
+<bwase.c;437:437;hlo;bwa_print_sam1;0>
+Loop at 437 -- selected for multiversion- Same-base
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwase.c;485:485;hlo_unroll;bwa_print_sam1;0>
+Loop at line 485 unrolled with remainder by 2   
+Loop at line 485 unrolled with remainder by 2   
+
+<bwase.c;488:488;hlo_unroll;bwa_print_sam1;0>
+Loop at line 488(rt-dd-ver 1) unrolled with remainder by 2   
+Loop at line 488(rt-dd-ver 2) unrolled with remainder by 2   
+
+<bwase.c;395:395;hlo_unroll;bwa_print_sam1;0>
+Loop at line 395 unrolled with remainder by 2   
+
+<bwase.c;434:434;hlo_unroll;bwa_print_sam1;0>
+Loop at line 434 unrolled with remainder by 2   
+Loop at line 434 unrolled with remainder by 2   
+
+<bwase.c;437:437;hlo_unroll;bwa_print_sam1;0>
+Loop at line 437(rt-dd-ver 1) unrolled with remainder by 2   
+Loop at line 437(rt-dd-ver 2) unrolled with remainder by 2   
+
+<bwase.c;465:465;hlo_unroll;bwa_print_sam1;0>
+Loop at line 465 unrolled with remainder by 2   
+
+<bwase.c;357:360;IPO INLINING;pos_5;0>
+INLINING REPORT: (pos_5) [24/94=25.5%]
+
+  -> INLINE: pos_end(535) (isz = 40) (sz = 48 (15+33))
+
+
+<bwase.c;357:360;IPO FORWARD SUBSTITUTION;pos_5;0>
+  SUBSTITUTION: TOTAL(8):REPLACE(7)REMOVE(1)
+
+
+HPO VECTORIZER REPORT (pos_5) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;pos_5;0>
+HPO Vectorizer Report (pos_5)
+
+bwase.c(359:21-359:21):VEC:pos_5:  loop was not vectorized: vectorization possible but seems inefficient
+
+
+<ipo_out1.c;-1:-1;hlo;pos_5;0>
+High Level Optimizer Report (pos_5)
+
+Loopnest Preprocessing Report:
+
+<bwase.c;359:359;hlo;pos_5;0>
+Preprocess Loopnests: Transforming conditional reduction statement @Line<359> in Loop @Line<359>
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwase.c;359:359;hlo_unroll;pos_5;0>
+Loop at line 359 unrolled with remainder by 2   
+
+<bwase.c;23:94;IPO INLINING;bwa_aln2seq_core;0>
+INLINING REPORT: (bwa_aln2seq_core) [25/94=26.6%]
+
+  -> drand48(EXTERN)
+  -> free(EXTERN)
+  -> wrap_calloc(EXTERN)
+  -> drand48(EXTERN)
+  -> drand48(EXTERN)
+
+
+HPO VECTORIZER REPORT (bwa_aln2seq_core) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;bwa_aln2seq_core;0>
+HPO Vectorizer Report (bwa_aln2seq_core)
+
+bwase.c(33:3-33:3):VEC:bwa_aln2seq_core:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwase.c(45:3-45:3):VEC:bwa_aln2seq_core:  loop was not vectorized: vectorization possible but seems inefficient
+bwase.c(52:3-52:3):VEC:bwa_aln2seq_core:  loop was not vectorized: vectorization possible but seems inefficient
+bwase.c(71:5-71:5):VEC:bwa_aln2seq_core:  loop was not vectorized: unsupported loop structure
+bwase.c(82:6-82:6):VEC:bwa_aln2seq_core:  loop was not vectorized: unsupported loop structure
+bwase.c(80:5-80:5):VEC:bwa_aln2seq_core:  loop was not vectorized: not inner loop
+bwase.c(67:3-67:3):VEC:bwa_aln2seq_core:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+
+
+<ipo_out1.c;-1:-1;hlo;bwa_aln2seq_core;0>
+High Level Optimizer Report (bwa_aln2seq_core)
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwase.c;45:45;hlo_unroll;bwa_aln2seq_core;0>
+Loop at line 45 unrolled with remainder by 2   
+
+<bwase.c;52:52;hlo_unroll;bwa_aln2seq_core;0>
+Loop at line 52 unrolled with remainder by 2   
+
+<bwase.c;97:99;IPO INLINING;bwa_aln2seq;0>
+INLINING REPORT: (bwa_aln2seq) [26/94=27.7%]
+
+  -> INLINE: bwa_aln2seq_core(592) (isz = 433) (sz = 448 (114+334))
+    -> drand48(EXTERN)
+    -> drand48(EXTERN)
+    -> wrap_calloc(EXTERN)
+    -> free(EXTERN)
+    -> drand48(EXTERN)
+
+
+<bwase.c;97:99;IPO FORWARD SUBSTITUTION;bwa_aln2seq;0>
+  SUBSTITUTION: TOTAL(56):REPLACE(49)REMOVE(7)
+
+
+HPO VECTORIZER REPORT (bwa_aln2seq) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;bwa_aln2seq;0>
+HPO Vectorizer Report (bwa_aln2seq)
+
+bwase.c(98:2-98:2):VEC:bwa_aln2seq:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+loop was not vectorized: vectorization possible but seems inefficient
+
+
+<ipo_out1.c;-1:-1;hlo;bwa_aln2seq;0>
+High Level Optimizer Report (bwa_aln2seq)
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwase.c;98:98;hlo_unroll;bwa_aln2seq;0>
+Loop at line 98 unrolled with remainder by 2   
+
+<bwaseqio.c;152:220;IPO INLINING;bwa_read_seq;0>
+INLINING REPORT: (bwa_read_seq) [27/94=28.7%]
+
+  -> fprintf(EXTERN)
+  -> free(EXTERN)
+  -> INLINE: bwa_trim_read(540) (isz = 63) (sz = 73 (28+45))
+  -> __ctype_tolower_loc(EXTERN)
+  -> __ctype_toupper_loc(EXTERN)
+  -> index(EXTERN)
+  -> wrap_calloc(EXTERN)
+  -> wrap_strdup(EXTERN)
+  -> wrap_calloc(EXTERN)
+  -> memcpy(EXTERN)
+  -> INLINE: seq_reverse(531) (isz = 107) (sz = 116 (36+80))
+  -> INLINE: seq_reverse(530) (isz = 107) (sz = 116 (36+80))
+  -> wrap_strdup(EXTERN)
+  -> strlen(EXTERN)
+  -> kseq_read(EXTERN)
+  -> kseq_read(EXTERN)
+  -> wrap_calloc(EXTERN)
+  -> bwa_read_bam(80) (isz = 853) (sz = 869 (247+622))
+  -> fprintf(EXTERN)
+
+
+<bwaseqio.c;152:220;IPO FORWARD SUBSTITUTION;bwa_read_seq;0>
+  SUBSTITUTION: TOTAL(24):REPLACE(17)REMOVE(7)
+
+
+HPO VECTORIZER REPORT (bwa_read_seq) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwaseqio.c;-1:-1;hpo_vectorization;bwa_read_seq;0>
+HPO Vectorizer Report (bwa_read_seq)
+
+bwaseqio.c(174:4-174:4):VEC:bwa_read_seq:  loop was not vectorized: unsupported loop structure
+bwaseqio.c(178:4-178:4):VEC:bwa_read_seq:  loop was not vectorized: existence of vector dependence
+bwaseqio.c(181:4-181:4):VEC:bwa_read_seq:  loop was not vectorized: unsupported loop structure
+bwaseqio.c(185:5-185:5):VEC:bwa_read_seq:  loop was not vectorized: unsupported loop structure
+bwaseqio.c(196:3-196:3):VEC:bwa_read_seq:  loop was not vectorized: unsupported loop structure
+bwaseqio.c(200:37-200:37):VEC:bwa_read_seq:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwaseqio.c(204:3-204:3):VEC:bwa_read_seq:  loop was not vectorized: existence of vector dependence
+bwaseqio.c(205:3-205:3):VEC:bwa_read_seq:  loop was not vectorized: existence of vector dependence
+loop was not vectorized: existence of vector dependence
+bwaseqio.c(165:2-165:2):VEC:bwa_read_seq:  loop was not vectorized: not inner loop
+
+
+<ipo_out1.c;-1:-1;hlo;bwa_read_seq;0>
+High Level Optimizer Report (bwa_read_seq)
+
+<bwaseqio.c;174:174;hlo_scalar_replacement;in bwa_read_seq;0>
+#of Array Refs Scalar Replaced in bwa_read_seq at line 174=1
+
+<bwaseqio.c;181:181;hlo_scalar_replacement;in bwa_read_seq;0>
+#of Array Refs Scalar Replaced in bwa_read_seq at line 181=1
+
+<bwaseqio.c;185:185;hlo_scalar_replacement;in bwa_read_seq;0>
+#of Array Refs Scalar Replaced in bwa_read_seq at line 185=1
+
+<bwaseqio.c;196:196;hlo_scalar_replacement;in bwa_read_seq;0>
+#of Array Refs Scalar Replaced in bwa_read_seq at line 196=1
+
+<bwaseqio.c;205:205;hlo_scalar_replacement;in bwa_read_seq;0>
+#of Array Refs Scalar Replaced in bwa_read_seq at line 205=1
+#of Array Refs Scalar Replaced in bwa_read_seq at line 205=1
+
+
+<bwaseqio.c;178:178;hlo_linear_trans;bwa_read_seq;0>
+Poor memory locality: Array of structurese detected
+Advice: Replacing Array of Structures by Structure of Arrays might help loopnest at lines: 178 
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwaseqio.c;204:204;hlo_unroll;bwa_read_seq;0>
+Loop at line 204 unrolled with remainder by 2   
+
+<bwaseqio.c;205:205;hlo_unroll;bwa_read_seq;0>
+Loop at line 205 unrolled with remainder by 2   
+Loop at line 205 unrolled with remainder by 2   
+bwaseqio.c(203:3-203:3):CG:bwa_read_seq:  call to memcpy implemented as a call to optimized library version
+
+<bwaseqio.c;94:146;IPO INLINING;bwa_read_bam;0>
+INLINING REPORT: (bwa_read_bam) [28/94=29.8%]
+
+  -> _err_fatal_simple(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> fprintf(EXTERN)
+  -> free(EXTERN)
+  -> wrap_calloc(EXTERN)
+  -> wrap_calloc(EXTERN)
+  -> INLINE: seq_reverse(529) (isz = 107) (sz = 116 (36+80))
+  -> INLINE: seq_reverse(528) (isz = 107) (sz = 116 (36+80))
+  -> INLINE: bwa_trim_read(539) (isz = 63) (sz = 73 (28+45))
+  -> wrap_calloc(EXTERN)
+  -> memcpy(EXTERN)
+  -> INLINE: seq_reverse(527) (isz = 107) (sz = 116 (36+80))
+  -> INLINE: seq_reverse(526) (isz = 107) (sz = 116 (36+80))
+  -> wrap_strdup(EXTERN)
+  -> bam_read1(114) (isz = 498) (sz = 511 (146+365))
+  -> bam_read1(114) (isz = 498) (sz = 511 (146+365))
+  -> wrap_calloc(EXTERN)
+  -> wrap_calloc(EXTERN)
+
+
+<bwaseqio.c;94:146;IPO FORWARD SUBSTITUTION;bwa_read_bam;0>
+  SUBSTITUTION: TOTAL(41):REPLACE(33)REMOVE(8)
+
+
+HPO VECTORIZER REPORT (bwa_read_bam) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwaseqio.c;-1:-1;hpo_vectorization;bwa_read_bam;0>
+HPO Vectorizer Report (bwa_read_bam)
+
+bwaseqio.c(120:3-120:3):VEC:bwa_read_bam:  loop was not vectorized: unsupported loop structure
+bwaseqio.c(125:4-125:4):VEC:bwa_read_bam:  loop was not vectorized: existence of vector dependence
+bwaseqio.c(126:4-126:4):VEC:bwa_read_bam:  loop was not vectorized: existence of vector dependence
+bwaseqio.c(128:36-128:36):VEC:bwa_read_bam:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwaseqio.c(131:3-131:3):VEC:bwa_read_bam:  loop was not vectorized: existence of vector dependence
+bwaseqio.c(132:3-132:3):VEC:bwa_read_bam:  loop was not vectorized: existence of vector dependence
+loop was not vectorized: existence of vector dependence
+bwaseqio.c(104:2-104:2):VEC:bwa_read_bam:  loop was not vectorized: not inner loop
+
+
+<ipo_out1.c;-1:-1;hlo;bwa_read_bam;0>
+High Level Optimizer Report (bwa_read_bam)
+
+<bwaseqio.c;120:120;hlo_scalar_replacement;in bwa_read_bam;0>
+#of Array Refs Scalar Replaced in bwa_read_bam at line 120=1
+
+<bwaseqio.c;125:125;hlo_scalar_replacement;in bwa_read_bam;0>
+#of Array Refs Scalar Replaced in bwa_read_bam at line 125=1
+#of Array Refs Scalar Replaced in bwa_read_bam at line 125=1
+
+<bwaseqio.c;132:132;hlo_scalar_replacement;in bwa_read_bam;0>
+#of Array Refs Scalar Replaced in bwa_read_bam at line 132=1
+#of Array Refs Scalar Replaced in bwa_read_bam at line 132=1
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwaseqio.c;125:125;hlo_unroll;bwa_read_bam;0>
+Loop at line 125 unrolled with remainder by 2   
+
+<bwaseqio.c;126:126;hlo_unroll;bwa_read_bam;0>
+Loop at line 126 unrolled with remainder by 2   
+
+<bwaseqio.c;131:131;hlo_unroll;bwa_read_bam;0>
+Loop at line 131 unrolled with remainder by 2   
+
+<bwaseqio.c;132:132;hlo_unroll;bwa_read_bam;0>
+Loop at line 132 unrolled with remainder by 2   
+Loop at line 132 unrolled with remainder by 2   
+bwaseqio.c(130:3-130:3):CG:bwa_read_bam:  call to memcpy implemented as a call to optimized library version
+
+<bwaseqio.c;26:36;IPO INLINING;bwa_bam_open;0>
+INLINING REPORT: (bwa_bam_open) [29/94=30.9%]
+
+  -> INLINE: bam_header_destroy(611) (isz = 44) (sz = 50 (20+30))
+    -> free(EXTERN)
+    -> free(EXTERN)
+    -> free(EXTERN)
+    -> free(EXTERN)
+    -> free(EXTERN)
+  -> bam_header_read(112) (isz = 475) (sz = 484 (154+330))
+  -> _err_fatal_simple(EXTERN)
+  -> bamlite_gzopen(115) (isz = 77) (sz = 87 (31+56))
+  -> wrap_calloc(EXTERN)
+
+
+<bwaseqio.c;26:36;IPO FORWARD SUBSTITUTION;bwa_bam_open;0>
+  SUBSTITUTION: TOTAL(22):REPLACE(19)REMOVE(3)
+
+
+HPO VECTORIZER REPORT (bwa_bam_open) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwaseqio.c;-1:-1;hpo_vectorization;bwa_bam_open;0>
+HPO Vectorizer Report (bwa_bam_open)
+
+bwaseqio.c(35:2-35:2):VEC:bwa_bam_open:  vectorization support: call to function free cannot be vectorized
+loop was not vectorized: statement cannot be vectorized
+
+<bwaseqio.c;26:36;IPO INLINING;bwa_bam_open..0;0>
+INLINING REPORT: (bwa_bam_open..0) [30/94=31.9%]
+
+  -> wrap_calloc(EXTERN)
+  -> bamlite_gzopen(115) (isz = 77) (sz = 87 (31+56))
+  -> _err_fatal_simple(EXTERN)
+  -> bam_header_read(112) (isz = 475) (sz = 484 (154+330))
+  -> INLINE: bam_header_destroy(743) (isz = 44) (sz = 50 (20+30))
+    -> free(EXTERN)
+    -> free(EXTERN)
+    -> free(EXTERN)
+    -> free(EXTERN)
+    -> free(EXTERN)
+
+
+<bwaseqio.c;26:36;IPO FORWARD SUBSTITUTION;bwa_bam_open..0;0>
+  SUBSTITUTION: TOTAL(22):REPLACE(19)REMOVE(3)
+
+
+HPO VECTORIZER REPORT (bwa_bam_open..0) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwaseqio.c;-1:-1;hpo_vectorization;bwa_bam_open..0;0>
+HPO Vectorizer Report (bwa_bam_open..0)
+
+bwaseqio.c(35:2-35:2):VEC:bwa_bam_open..0:  vectorization support: call to function free cannot be vectorized
+loop was not vectorized: statement cannot be vectorized
+
+<bwashm.c;180:212;IPO INLINING;main_shm;0>
+INLINING REPORT: (main_shm) [31/94=33.0%]
+
+  -> fprintf(EXTERN)
+  -> INLINE: bwa_shm_destroy(342) (isz = 76) (sz = 82 (27+55))
+    -> shm_open(EXTERN)
+    -> mmap(EXTERN)
+    -> munmap(EXTERN)
+    -> shm_unlink(EXTERN)
+    -> strlen(EXTERN)
+    -> shm_unlink(EXTERN)
+    -> strcat(EXTERN)
+    -> memcpy(EXTERN)
+    -> memcpy(EXTERN)
+  -> fprintf(EXTERN)
+  -> bwa_shm_stage(46) (isz = 293) (sz = 308 (97+211))
+  -> bwa_idx_load_from_disk(EXTERN)
+  -> fprintf(EXTERN)
+  -> bwa_idx_destroy(EXTERN)
+  -> INLINE: bwa_shm_list(343) (isz = 57) (sz = 63 (23+40))
+    -> shm_open(EXTERN)
+    -> mmap(EXTERN)
+    -> strlen(EXTERN)
+    -> printf(EXTERN)
+    -> memcpy(EXTERN)
+  -> INLINE: bwa_shm_test(344) (isz = 83) (sz = 93 (41+52))
+    -> strlen(EXTERN)
+    -> shm_open(EXTERN)
+    -> mmap(EXTERN)
+    -> strlen(EXTERN)
+    -> strcmp(EXTERN)
+  -> fprintf(EXTERN)
+  -> fprintf(EXTERN)
+  -> fprintf(EXTERN)
+  -> fprintf(EXTERN)
+  -> getopt(EXTERN)
+  -> getopt(EXTERN)
+
+
+<bwashm.c;180:212;IPO FORWARD SUBSTITUTION;main_shm;0>
+  SUBSTITUTION: TOTAL(40):REPLACE(27)REMOVE(13)
+
+
+HPO VECTORIZER REPORT (main_shm) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwashm.c;-1:-1;hpo_vectorization;main_shm;0>
+HPO Vectorizer Report (main_shm)
+
+bwashm.c(183:2-183:2):VEC:main_shm:  loop was not vectorized: unsupported loop structure
+bwashm.c(200:7-200:7):VEC:main_shm:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+loop was not vectorized: unsupported loop structure
+bwashm.c(210:15-210:15):VEC:main_shm:  loop was not vectorized: unsupported loop structure
+bwashm.c(211:15-211:15):VEC:main_shm:  loop was not vectorized: unsupported loop structure
+bwashm.c(211:15-211:15):CG:main_shm:  call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (4, 0), and destination (alignment, offset): (1, 0)
+
+<bwashm.c;13:84;IPO INLINING;bwa_shm_stage;0>
+INLINING REPORT: (bwa_shm_stage) [32/94=34.0%]
+
+  -> perror(EXTERN)
+  -> fread(EXTERN)
+  -> fclose(EXTERN)
+  -> unlink(EXTERN)
+  -> bwa_mem2idx(EXTERN)
+  -> free(EXTERN)
+  -> memcpy(EXTERN)
+  -> fopen(EXTERN)
+  -> mmap(EXTERN)
+  -> ftruncate(EXTERN)
+  -> memcpy(EXTERN)
+  -> memcpy(EXTERN)
+  -> strlen(EXTERN)
+  -> shm_unlink(EXTERN)
+  -> shm_open(EXTERN)
+  -> fwrite(EXTERN)
+  -> free(EXTERN)
+  -> fclose(EXTERN)
+  -> fprintf(EXTERN)
+  -> strcat(EXTERN)
+  -> memcpy(EXTERN)
+  -> fopen(EXTERN)
+  -> bwa_idx2mem(EXTERN)
+  -> memset(EXTERN)
+  -> mmap(EXTERN)
+  -> ftruncate(EXTERN)
+  -> shm_open(EXTERN)
+  -> shm_open(EXTERN)
+  -> strlen(EXTERN)
+
+
+HPO VECTORIZER REPORT (bwa_shm_stage) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwashm.c;-1:-1;hpo_vectorization;bwa_shm_stage;0>
+HPO Vectorizer Report (bwa_shm_stage)
+
+bwashm.c(21:2-21:2):VEC:bwa_shm_stage:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwashm.c(43:4-43:4):VEC:bwa_shm_stage:  loop was not vectorized: unsupported loop structure
+bwashm.c(72:3-72:3):VEC:bwa_shm_stage:  loop was not vectorized: unsupported loop structure
+bwashm.c(33:3-33:3):CG:bwa_shm_stage:  call to memset implemented as a call to optimized library version
+bwashm.c(55:9-55:9):CG:bwa_shm_stage:  call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (4, 0), and destination (alignment, offset): (1, 0)
+bwashm.c(64:2-64:2):CG:bwa_shm_stage:  call to memcpy implemented as a call to optimized library version
+bwashm.c(79:3-79:3):CG:bwa_shm_stage:  call to memcpy implemented as a call to optimized library version
+
+<QSufSort.c;102:106;IPO INLINING;QSufSortGenerateSaFromInverse;0>
+INLINING REPORT: (QSufSortGenerateSaFromInverse) [33/94=35.1%]
+
+
+
+HPO VECTORIZER REPORT (QSufSortGenerateSaFromInverse) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<QSufSort.c;-1:-1;hpo_vectorization;QSufSortGenerateSaFromInverse;0>
+HPO Vectorizer Report (QSufSortGenerateSaFromInverse)
+
+QSufSort.c(104:2-104:2):VEC:QSufSortGenerateSaFromInverse:  LOOP WAS VECTORIZED
+REMAINDER LOOP WAS VECTORIZED
+
+
+<ipo_out1.c;-1:-1;hlo;QSufSortGenerateSaFromInverse;0>
+High Level Optimizer Report (QSufSortGenerateSaFromInverse)
+
+<QSufSort.c;102:106;IPO INLINING;QSufSortGenerateSaFromInverse;0>
+INLINING REPORT: (QSufSortGenerateSaFromInverse) [33/94=35.1%]
+
+
+
+HPO VECTORIZER REPORT (QSufSortGenerateSaFromInverse.V) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<QSufSort.c;-1:-1;hpo_vectorization;QSufSortGenerateSaFromInverse.V;0>
+HPO Vectorizer Report (QSufSortGenerateSaFromInverse.V)
+
+
+
+<ipo_out1.c;-1:-1;hlo;QSufSortGenerateSaFromInverse.V;0>
+High Level Optimizer Report (QSufSortGenerateSaFromInverse.V)
+
+<QSufSort.c;102:106;IPO INLINING;QSufSortGenerateSaFromInverse;0>
+INLINING REPORT: (QSufSortGenerateSaFromInverse) [33/94=35.1%]
+
+
+
+HPO VECTORIZER REPORT (QSufSortGenerateSaFromInverse.A) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<QSufSort.c;-1:-1;hpo_vectorization;QSufSortGenerateSaFromInverse.A;0>
+HPO Vectorizer Report (QSufSortGenerateSaFromInverse.A)
+
+
+
+<ipo_out1.c;-1:-1;hlo;QSufSortGenerateSaFromInverse.A;0>
+High Level Optimizer Report (QSufSortGenerateSaFromInverse.A)
+
+<QSufSort.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;QSufSortInsertSortSplit;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (QSufSortInsertSortSplit)
+  Routine is dead static
+
+
+<QSufSort.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;QSufSortBucketSort;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (QSufSortBucketSort)
+  Routine is dead static
+
+
+<QSufSort.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;QSufSortTransform;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (QSufSortTransform)
+  Routine is dead static
+
+
+<bwt_gen.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;TextLengthFromBytePacked;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (TextLengthFromBytePacked)
+  Routine is dead static
+
+
+<bwt_gen.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;GenerateDNAOccCountTable;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (GenerateDNAOccCountTable)
+  Routine is dead static
+
+
+<bwt_gen.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;BWTOccValueMajorSizeInWord;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (BWTOccValueMajorSizeInWord)
+  Routine is dead static
+
+
+<bwt_gen.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;BWTOccValueMinorSizeInWord;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (BWTOccValueMinorSizeInWord)
+  Routine is dead static
+
+
+<bwt_gen.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;BWTResidentSizeInWord;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (BWTResidentSizeInWord)
+  Routine is dead static
+
+
+<bwt_gen.c;208:232;IPO INLINING;leadingZero;0>
+INLINING REPORT: (leadingZero) [42/94=44.7%]
+
+
+
+<bwt_gen.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;ceilLog2;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (ceilLog2)
+  Routine is dead static
+
+
+<bwt_gen.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;BitPerWordPackedChar;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (BitPerWordPackedChar)
+  Routine is dead static
+
+
+<bwt_gen.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;ConvertBytePackedToWordPacked;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (ConvertBytePackedToWordPacked)
+  Routine is dead static
+
+
+<bwt_gen.c;324:350;IPO INLINING;BWTCreate;0>
+INLINING REPORT: (BWTCreate) [46/94=48.9%]
+
+  -> INLINE: GenerateDNAOccCountTable(688) (isz = 34) (sz = 39 (17+22))
+  -> wrap_calloc(EXTERN)
+  -> INLINE: BWTOccValueMajorSizeInWord(689) (isz = 6) (sz = 13 (3+10))
+  -> wrap_calloc(EXTERN)
+  -> initializeVAL_bg(10) (isz = 10) (sz = 19 (10+9))
+  -> wrap_calloc(EXTERN)
+  -> wrap_calloc(EXTERN)
+
+
+<bwt_gen.c;324:350;IPO FORWARD SUBSTITUTION;BWTCreate;0>
+  SUBSTITUTION: TOTAL(16):REPLACE(14)REMOVE(2)
+
+
+HPO VECTORIZER REPORT (BWTCreate) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwt_gen.c;-1:-1;hpo_vectorization;BWTCreate;0>
+HPO Vectorizer Report (BWTCreate)
+
+bwt_gen.c(339:3-339:3):VEC:BWTCreate:  loop was not vectorized: loop was transformed to memset or memcpy
+loop was not vectorized: vectorization possible but seems inefficient
+
+
+<ipo_out1.c;-1:-1;hlo;BWTCreate;0>
+High Level Optimizer Report (BWTCreate)
+
+<bwt_gen.c;339:339;hlo_distribution;in BWTCreate;0>
+LOOP DISTRIBUTION in BWTCreate at line 339
+
+<bwt_gen.c;339:339;hlo_scalar_replacement;in BWTCreate;0>
+#of Array Refs Scalar Replaced in BWTCreate at line 339=14
+
+
+<bwt_gen.c;339:339;hlo_reroll;BWTCreate;0>
+Loop at line:339      memset generated  
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwt_gen.c;339:339;hlo_unroll;BWTCreate;0>
+Loop at line 339 completely unrolled by 8    (pre-vector) 
+bwt_gen.c(339:3-339:3):CG:BWTCreate:  call to memset implemented as a call to optimized library version
+
+<bwt_gen.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;BWTIncPutPackedTextToRank;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (BWTIncPutPackedTextToRank)
+  Routine is dead static
+
+
+<bwt_gen.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;BWTIncBuildPackedBwt;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (BWTIncBuildPackedBwt)
+  Routine is dead static
+
+
+<bwt_gen.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;BWTOccValueExplicit;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (BWTOccValueExplicit)
+  Routine is dead static
+
+
+<bwt_gen.c;618:637;IPO INLINING;BWTOccValue;0>
+INLINING REPORT: (BWTOccValue) [52/94=55.3%]
+
+  -> INLINE: BackwardDNAOccCount(679) (isz = 57) (sz = 70 (21+49))
+  -> INLINE: ForwardDNAOccCount(680) (isz = 56) (sz = 69 (19+50))
+  -> INLINE (MANUAL): BWTOccValueExplicit(681) (isz = 33) (sz = 45 (5+40))
+
+
+<bwt_gen.c;618:637;IPO FORWARD SUBSTITUTION;BWTOccValue;0>
+  SUBSTITUTION: TOTAL(4):REPLACE(2)REMOVE(2)
+
+
+HPO VECTORIZER REPORT (BWTOccValue) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwt_gen.c;-1:-1;hpo_vectorization;BWTOccValue;0>
+HPO Vectorizer Report (BWTOccValue)
+
+bwt_gen.c(635:21-635:21):VEC:BWTOccValue:  loop was not vectorized: vectorization possible but seems inefficient
+bwt_gen.c(637:21-637:21):VEC:BWTOccValue:  loop was not vectorized: existence of vector dependence
+
+
+<ipo_out1.c;-1:-1;hlo;BWTOccValue;0>
+High Level Optimizer Report (BWTOccValue)
+
+<bwt_gen.c;635:635;hlo_scalar_replacement;in BWTOccValue;0>
+#of Array Refs Scalar Replaced in BWTOccValue at line 635=2
+ with partial sums replaced in BWTOccValue at line 635
+#of Array Refs Scalar Replaced in BWTOccValue at line 635=1
+
+<bwt_gen.c;637:637;hlo_scalar_replacement;in BWTOccValue;0>
+#of Array Refs Scalar Replaced in BWTOccValue at line 637=1
+ with partial sums replaced in BWTOccValue at line 637
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwt_gen.c;635:635;hlo_unroll;BWTOccValue;0>
+Loop at line 635 unrolled with remainder by 2   
+
+<bwt_gen.c;637:637;hlo_unroll;BWTOccValue;0>
+Loop at line 637 unrolled with remainder by 2   
+
+<bwt_gen.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;BWTIncSortKey;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (BWTIncSortKey)
+  Routine is dead static
+
+
+<bwt_gen.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;BWTIncBuildRelativeRank;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (BWTIncBuildRelativeRank)
+  Routine is dead static
+
+
+<bwt_gen.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;BWTIncBuildBwt;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (BWTIncBuildBwt)
+  Routine is dead static
+
+
+<bwt_gen.c;1063:1083;IPO INLINING;BWTClearTrailingBwtCode;0>
+INLINING REPORT: (BWTClearTrailingBwtCode) [56/94=59.6%]
+
+  -> INLINE: BWTResidentSizeInWord(673) (isz = 4) (sz = 11 (3+8))
+
+
+<bwt_gen.c;1063:1083;IPO FORWARD SUBSTITUTION;BWTClearTrailingBwtCode;0>
+  SUBSTITUTION: TOTAL(4):REPLACE(3)REMOVE(1)
+
+
+HPO VECTORIZER REPORT (BWTClearTrailingBwtCode) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwt_gen.c;-1:-1;hpo_vectorization;BWTClearTrailingBwtCode;0>
+HPO Vectorizer Report (BWTClearTrailingBwtCode)
+
+bwt_gen.c(1080:2-1080:2):VEC:BWTClearTrailingBwtCode:  loop was not vectorized: existence of vector dependence
+loop was not vectorized: not inner loop
+
+
+<ipo_out1.c;-1:-1;hlo;BWTClearTrailingBwtCode;0>
+High Level Optimizer Report (BWTClearTrailingBwtCode)
+
+
+<bwt_gen.c;1080:1080;hlo_reroll;BWTClearTrailingBwtCode;0>
+Loop at line:1080     memset generated  
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwt_gen.c;1080:1080;hlo_unroll;BWTClearTrailingBwtCode;0>
+Loop at line 1080 unrolled with remainder by 2   
+bwt_gen.c(1081:3-1081:3):CG:BWTClearTrailingBwtCode:  call to memset implemented as a call to optimized library version
+
+<bwt_gen.c;1545:1553;IPO INLINING;BWTFree;0>
+INLINING REPORT: (BWTFree) [57/94=60.6%]
+
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+
+
+<bwt_gen.c;1556:1561;IPO INLINING;BWTIncFree;0>
+INLINING REPORT: (BWTIncFree) [58/94=61.7%]
+
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+
+
+<bwt_gen.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;BWTFileSizeInWord;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (BWTFileSizeInWord)
+  Routine is dead static
+
+
+<bwt_gen.c;1570:1599;IPO INLINING;BWTSaveBwtCodeAndOcc;0>
+INLINING REPORT: (BWTSaveBwtCodeAndOcc) [60/94=63.8%]
+
+  -> exit(EXTERN)
+  -> exit(EXTERN)
+  -> exit(EXTERN)
+  -> fprintf(EXTERN)
+  -> strerror(EXTERN)
+  -> __errno_location(EXTERN)
+  -> fclose(EXTERN)
+  -> fwrite(EXTERN)
+  -> fprintf(EXTERN)
+  -> strerror(EXTERN)
+  -> __errno_location(EXTERN)
+  -> fwrite(EXTERN)
+  -> fwrite(EXTERN)
+  -> INLINE: BWTFileSizeInWord(648) (isz = 1) (sz = 7 (2+5))
+  -> fprintf(EXTERN)
+  -> strerror(EXTERN)
+  -> __errno_location(EXTERN)
+  -> fopen(EXTERN)
+
+
+<bwt_gen.c;1570:1599;IPO FORWARD SUBSTITUTION;BWTSaveBwtCodeAndOcc;0>
+  SUBSTITUTION: TOTAL(9):REPLACE(7)REMOVE(2)
+
+
+<bwt_gen.c;1602:1608;IPO INLINING;bwt_bwtgen2;0>
+INLINING REPORT: (bwt_bwtgen2) [61/94=64.9%]
+
+  -> INLINE: BWTIncFree(647) (isz = 8) (sz = 14 (7+7))
+    -> free(EXTERN)
+    -> free(EXTERN)
+    -> free(EXTERN)
+  -> INLINE: BWTSaveBwtCodeAndOcc(649) (isz = 94) (sz = 103 (29+74))
+    -> fopen(EXTERN)
+    -> __errno_location(EXTERN)
+    -> strerror(EXTERN)
+    -> fprintf(EXTERN)
+    -> INLINE: BWTFileSizeInWord(650) (isz = 1) (sz = 7 (2+5))
+    -> fwrite(EXTERN)
+    -> fwrite(EXTERN)
+    -> __errno_location(EXTERN)
+    -> strerror(EXTERN)
+    -> fprintf(EXTERN)
+    -> fwrite(EXTERN)
+    -> fclose(EXTERN)
+    -> __errno_location(EXTERN)
+    -> strerror(EXTERN)
+    -> fprintf(EXTERN)
+    -> exit(EXTERN)
+    -> exit(EXTERN)
+    -> exit(EXTERN)
+  -> printf(EXTERN)
+  -> BWTIncConstructFromPacked(38) (isz = 726) (sz = 737 (267+470))
+
+
+<bwt_gen.c;1602:1608;IPO FORWARD SUBSTITUTION;bwt_bwtgen2;0>
+  SUBSTITUTION: TOTAL(24):REPLACE(18)REMOVE(6)
+
+
+<bwt_gen.c;1616:1622;IPO INLINING;bwt_bwtgen_main;0>
+INLINING REPORT: (bwt_bwtgen_main) [62/94=66.0%]
+
+  -> bwt_bwtgen(44) (isz = 118) (sz = 125 (36+89))
+  -> fprintf(EXTERN)
+
+
+<bwashm.c;88:117;IPO INLINING;bwa_idx_load_from_shm;0>
+INLINING REPORT: (bwa_idx_load_from_shm) [63/94=67.0%]
+
+  -> bwa_mem2idx(EXTERN)
+  -> calloc(EXTERN)
+  -> mmap(EXTERN)
+  -> shm_open(EXTERN)
+  -> strcat(EXTERN)
+  -> memcpy(EXTERN)
+  -> strcmp(EXTERN)
+  -> strlen(EXTERN)
+  -> memcpy(EXTERN)
+  -> mmap(EXTERN)
+  -> shm_open(EXTERN)
+  -> strlen(EXTERN)
+
+
+HPO VECTORIZER REPORT (bwa_idx_load_from_shm) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwashm.c;-1:-1;hpo_vectorization;bwa_idx_load_from_shm;0>
+HPO Vectorizer Report (bwa_idx_load_from_shm)
+
+bwashm.c(98:2-98:2):VEC:bwa_idx_load_from_shm:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwashm.c(104:2-104:2):VEC:bwa_idx_load_from_shm:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwashm.c(111:9-111:9):CG:bwa_idx_load_from_shm:  call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (4, 0), and destination (alignment, offset): (1, 0)
+
+<bwashm.c;121:137;IPO INLINING;bwa_shm_test;0>
+INLINING REPORT: (bwa_shm_test) [64/94=68.1%]
+
+  -> strcmp(EXTERN)
+  -> strlen(EXTERN)
+  -> mmap(EXTERN)
+  -> shm_open(EXTERN)
+  -> strlen(EXTERN)
+
+
+HPO VECTORIZER REPORT (bwa_shm_test) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwashm.c;-1:-1;hpo_vectorization;bwa_shm_test;0>
+HPO Vectorizer Report (bwa_shm_test)
+
+bwashm.c(128:2-128:2):VEC:bwa_shm_test:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+bwashm.c(133:2-133:2):VEC:bwa_shm_test:  loop was not vectorized: unsupported loop structure
+
+<bwashm.c;141:154;IPO INLINING;bwa_shm_list;0>
+INLINING REPORT: (bwa_shm_list) [65/94=69.1%]
+
+  -> memcpy(EXTERN)
+  -> printf(EXTERN)
+  -> strlen(EXTERN)
+  -> mmap(EXTERN)
+  -> shm_open(EXTERN)
+
+
+HPO VECTORIZER REPORT (bwa_shm_list) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwashm.c;-1:-1;hpo_vectorization;bwa_shm_list;0>
+HPO Vectorizer Report (bwa_shm_list)
+
+bwashm.c(148:2-148:2):VEC:bwa_shm_list:  loop was not vectorized: unsupported loop structure
+
+<bwashm.c;158:176;IPO INLINING;bwa_shm_destroy;0>
+INLINING REPORT: (bwa_shm_destroy) [66/94=70.2%]
+
+  -> memcpy(EXTERN)
+  -> memcpy(EXTERN)
+  -> strcat(EXTERN)
+  -> shm_unlink(EXTERN)
+  -> strlen(EXTERN)
+  -> shm_unlink(EXTERN)
+  -> munmap(EXTERN)
+  -> mmap(EXTERN)
+  -> shm_open(EXTERN)
+
+
+HPO VECTORIZER REPORT (bwa_shm_destroy) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwashm.c;-1:-1;hpo_vectorization;bwa_shm_destroy;0>
+HPO Vectorizer Report (bwa_shm_destroy)
+
+bwashm.c(167:2-167:2):VEC:bwa_shm_destroy:  loop was not vectorized: unsupported loop structure
+bwashm.c(170:10-170:10):CG:bwa_shm_destroy:  call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (4, 0), and destination (alignment, offset): (1, 0)
+
+<bntseq.h;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;bns_depos;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (bns_depos)
+  Routine is dead static
+
+
+<bwaseqio.c;50:59;IPO INLINING;bwa_seq_close;0>
+INLINING REPORT: (bwa_seq_close) [69/94=73.4%]
+
+  -> _err_fatal_simple(EXTERN)
+  -> free(EXTERN)
+  -> kseq_destroy(EXTERN)
+  -> err_gzclose(EXTERN)
+  -> INLINE: bamlite_gzclose(519) (isz = 23) (sz = 30 (12+18))
+    -> gzclose(EXTERN)
+    -> fprintf(EXTERN)
+    -> __errno_location(EXTERN)
+    -> strerror(EXTERN)
+    -> zError(EXTERN)
+
+
+<bwaseqio.c;50:59;IPO FORWARD SUBSTITUTION;bwa_seq_close;0>
+  SUBSTITUTION: TOTAL(10):REPLACE(7)REMOVE(3)
+
+
+<bwaseqio.c;62:78;IPO INLINING;seq_reverse;0>
+INLINING REPORT: (seq_reverse) [70/94=74.5%]
+
+
+
+HPO VECTORIZER REPORT (seq_reverse) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwaseqio.c;-1:-1;hpo_vectorization;seq_reverse;0>
+HPO Vectorizer Report (seq_reverse)
+
+bwaseqio.c(65:3-65:3):VEC:seq_reverse:  loop was not vectorized: existence of vector dependence
+bwaseqio.c(73:3-73:3):VEC:seq_reverse:  loop was not vectorized: existence of vector dependence
+loop skipped: multiversioned
+
+
+<ipo_out1.c;-1:-1;hlo;seq_reverse;0>
+High Level Optimizer Report (seq_reverse)
+
+<bwaseqio.c;65:65;hlo_scalar_replacement;in seq_reverse;0>
+#of Array Refs Scalar Replaced in seq_reverse at line 65=1
+#of Array Refs Scalar Replaced in seq_reverse at line 65=1
+
+Loop dual-path report:
+
+<bwaseqio.c;73:73;hlo;seq_reverse;0>
+Loop at 73 -- selected for multiversion- Same-base
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwaseqio.c;65:65;hlo_unroll;seq_reverse;0>
+Loop at line 65 unrolled with remainder by 2   
+
+<bwaseqio.c;73:73;hlo_unroll;seq_reverse;0>
+Loop at line 73(rt-dd-ver 1) unrolled with remainder by 2   
+Loop at line 73(rt-dd-ver 2) unrolled with remainder by 2   
+
+<bwaseqio.c;224:235;IPO INLINING;bwa_free_read_seq;0>
+INLINING REPORT: (bwa_free_read_seq) [71/94=75.5%]
+
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+
+
+HPO VECTORIZER REPORT (bwa_free_read_seq) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwaseqio.c;-1:-1;hpo_vectorization;bwa_free_read_seq;0>
+HPO Vectorizer Report (bwa_free_read_seq)
+
+bwaseqio.c(229:27-229:27):VEC:bwa_free_read_seq:  vectorization support: call to function free cannot be vectorized
+loop was not vectorized: statement cannot be vectorized
+bwaseqio.c(228:3-228:3):VEC:bwa_free_read_seq:  loop was not vectorized: not inner loop
+
+
+<ipo_out1.c;-1:-1;hlo;bwa_free_read_seq;0>
+High Level Optimizer Report (bwa_free_read_seq)
+
+
+<bwaseqio.c;228:228;hlo_linear_trans;bwa_free_read_seq;0>
+Poor memory locality: Array of structurese detected
+Advice: Replacing Array of Structures by Structure of Arrays might help loopnest at lines: 228 
+
+<kstring.h;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;kputc;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (kputc)
+  Routine is dead static
+
+
+<bwase.c;131:141;IPO INLINING;bwa_cal_pac_pos_core;0>
+INLINING REPORT: (bwa_cal_pac_pos_core) [73/94=77.7%]
+
+  -> bwa_approx_mapQ(57) (isz = 36) (sz = 49 (15+34))
+  -> bwa_sa2pos(58) (isz = 49) (sz = 65 (25+40))
+  -> bwa_approx_mapQ(57) (isz = 36) (sz = 49 (15+34))
+  -> INLINE: bwa_cal_maxdiff(596) (isz = 28) (sz = 40 (17+23))
+    -> exp(EXTERN)
+
+
+<bwase.c;131:141;IPO FORWARD SUBSTITUTION;bwa_cal_pac_pos_core;0>
+  SUBSTITUTION: TOTAL(6):REPLACE(4)REMOVE(2)
+
+
+HPO VECTORIZER REPORT (bwa_cal_pac_pos_core) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;bwa_cal_pac_pos_core;0>
+HPO Vectorizer Report (bwa_cal_pac_pos_core)
+
+bwase.c(134:24-134:24):VEC:bwa_cal_pac_pos_core:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+
+<bwase.c;169:195;IPO INLINING;bwa_refine_gapped_core;0>
+INLINING REPORT: (bwa_refine_gapped_core) [74/94=78.7%]
+
+  -> free(EXTERN)
+  -> memmove(EXTERN)
+  -> __assert_fail(EXTERN)
+  -> ksw_global(EXTERN)
+  -> __assert_fail(EXTERN)
+  -> __assert_fail(EXTERN)
+  -> bns_get_seq(EXTERN)
+  -> bwa_fill_scmat(EXTERN)
+
+
+HPO VECTORIZER REPORT (bwa_refine_gapped_core) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;bwa_refine_gapped_core;0>
+HPO Vectorizer Report (bwa_refine_gapped_core)
+
+bwase.c(192:2-192:2):VEC:bwa_refine_gapped_core:  loop was not vectorized: unsupported loop structure
+bwase.c(189:3-189:3):CG:bwa_refine_gapped_core:  call to memmove implemented as a call to optimized library version
+
+<bwase.c;249:282;IPO INLINING;bwa_correct_trimmed;0>
+INLINING REPORT: (bwa_correct_trimmed) [75/94=79.8%]
+
+  -> wrap_realloc(EXTERN)
+  -> wrap_calloc(EXTERN)
+  -> memmove(EXTERN)
+  -> wrap_realloc(EXTERN)
+  -> wrap_calloc(EXTERN)
+
+bwase.c(276:5-276:5):CG:bwa_correct_trimmed:  call to memmove implemented as a call to optimized library version
+
+<bwase.c;331:340;IPO INLINING;pos_end;0>
+INLINING REPORT: (pos_end) [76/94=80.9%]
+
+
+
+HPO VECTORIZER REPORT (pos_end) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;pos_end;0>
+HPO Vectorizer Report (pos_end)
+
+bwase.c(335:3-335:3):VEC:pos_end:  loop was not vectorized: vectorization possible but seems inefficient
+
+
+<ipo_out1.c;-1:-1;hlo;pos_end;0>
+High Level Optimizer Report (pos_end)
+
+Loopnest Preprocessing Report:
+
+<bwase.c;335:335;hlo;pos_end;0>
+Preprocess Loopnests: Transforming conditional reduction statement @Line<337> in Loop @Line<335>
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwase.c;335:335;hlo_unroll;pos_end;0>
+Loop at line 335 unrolled with remainder by 2   
+
+<bwase.c;344:353;IPO INLINING;pos_end_multi;0>
+INLINING REPORT: (pos_end_multi) [77/94=81.9%]
+
+
+
+HPO VECTORIZER REPORT (pos_end_multi) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;pos_end_multi;0>
+HPO Vectorizer Report (pos_end_multi)
+
+bwase.c(348:3-348:3):VEC:pos_end_multi:  loop was not vectorized: vectorization possible but seems inefficient
+
+
+<ipo_out1.c;-1:-1;hlo;pos_end_multi;0>
+High Level Optimizer Report (pos_end_multi)
+
+Loopnest Preprocessing Report:
+
+<bwase.c;348:348;hlo;pos_end_multi;0>
+Preprocess Loopnests: Transforming conditional reduction statement @Line<350> in Loop @Line<348>
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwase.c;348:348;hlo_unroll;pos_end_multi;0>
+Loop at line 348 unrolled with remainder by 2   
+
+<bwase.c;363:381;IPO INLINING;bwa_print_seq;0>
+INLINING REPORT: (bwa_print_seq) [78/94=83.0%]
+
+  -> err_fwrite(EXTERN)
+  -> err_fwrite(EXTERN)
+
+
+HPO VECTORIZER REPORT (bwa_print_seq) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;bwa_print_seq;0>
+HPO Vectorizer Report (bwa_print_seq)
+
+bwase.c(371:4-371:4):VEC:bwa_print_seq:  loop was not vectorized: existence of vector dependence
+bwase.c(369:3-369:3):VEC:bwa_print_seq:  loop was not vectorized: unsupported loop structure
+bwase.c(377:4-377:4):VEC:bwa_print_seq:  loop was not vectorized: existence of vector dependence
+bwase.c(375:3-375:3):VEC:bwa_print_seq:  loop was not vectorized: not inner loop
+
+
+<ipo_out1.c;-1:-1;hlo;bwa_print_seq;0>
+High Level Optimizer Report (bwa_print_seq)
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwase.c;371:371;hlo_unroll;bwa_print_seq;0>
+Loop at line 371 unrolled with remainder by 2   
+
+<bwase.c;377:377;hlo_unroll;bwa_print_seq;0>
+Loop at line 377 unrolled with remainder by 2   
+
+<bwase.c;576:601;IPO INLINING;bwa_sai2sam_se;0>
+INLINING REPORT: (bwa_sai2sam_se) [79/94=84.0%]
+
+  -> free(EXTERN)
+  -> bwa_sai2sam_se_core(71) (isz = 315) (sz = 328 (107+221))
+  -> fprintf(EXTERN)
+  -> bwa_set_rg(EXTERN)
+  -> err_xreopen_core(EXTERN)
+  -> INLINE (MANUAL): atoi.5(320) (isz = 4) (sz = 11 (3+8))
+    -> strtol(EXTERN)
+  -> getopt(EXTERN)
+  -> bwa_idx_infer_prefix(EXTERN)
+  -> fprintf(EXTERN)
+  -> getopt(EXTERN)
+
+
+<bwase.c;576:601;IPO FORWARD SUBSTITUTION;bwa_sai2sam_se;0>
+  SUBSTITUTION: TOTAL(13):REPLACE(9)REMOVE(4)
+
+
+HPO VECTORIZER REPORT (bwa_sai2sam_se) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;bwa_sai2sam_se;0>
+HPO Vectorizer Report (bwa_sai2sam_se)
+
+bwase.c(579:2-579:2):VEC:bwa_sai2sam_se:  loop was not vectorized: unsupported loop structure
+
+<bwaseqio.c;40:46;IPO INLINING;bwa_seq_open;0>
+INLINING REPORT: (bwa_seq_open) [82/94=87.2%]
+
+  -> kseq_init(EXTERN)
+  -> err_xzopen_core(EXTERN)
+  -> wrap_calloc(EXTERN)
+
+
+<bwaseqio.c;81:90;IPO INLINING;bwa_trim_read;0>
+INLINING REPORT: (bwa_trim_read) [83/94=88.3%]
+
+
+
+HPO VECTORIZER REPORT (bwa_trim_read) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwaseqio.c;-1:-1;hpo_vectorization;bwa_trim_read;0>
+HPO Vectorizer Report (bwa_trim_read)
+
+bwaseqio.c(84:2-84:2):VEC:bwa_trim_read:  loop was not vectorized: nonstandard loop is not a vectorization candidate
+
+<bwtgap.c;32:37;IPO INLINING;gap_destroy_stack;0>
+INLINING REPORT: (gap_destroy_stack) [84/94=89.4%]
+
+  -> free(EXTERN)
+  -> free(EXTERN)
+  -> free(EXTERN)
+
+
+HPO VECTORIZER REPORT (gap_destroy_stack) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwtgap.c;-1:-1;hpo_vectorization;gap_destroy_stack;0>
+HPO Vectorizer Report (gap_destroy_stack)
+
+bwtgap.c(34:41-34:41):VEC:gap_destroy_stack:  vectorization support: call to function free cannot be vectorized
+bwtgap.c(34:2-34:2):VEC:gap_destroy_stack:  loop was not vectorized: existence of vector dependence
+
+
+<ipo_out1.c;-1:-1;hlo;gap_destroy_stack;0>
+High Level Optimizer Report (gap_destroy_stack)
+
+
+<bwtgap.c;34:34;hlo_linear_trans;gap_destroy_stack;0>
+Poor memory locality: Array of structurese detected
+Advice: Replacing Array of Structures by Structure of Arrays might help loopnest at lines: 34 
+
+<bwtgap.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;gap_reset_stack;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (gap_reset_stack)
+  Routine is dead static
+
+
+<bwtgap.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;gap_push;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (gap_push)
+  Routine is dead static
+
+
+<bwtgap.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;gap_pop;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (gap_pop)
+  Routine is dead static
+
+
+<bwtgap.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;gap_shadow;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (gap_shadow)
+  Routine is dead static
+
+
+<bwtgap.c;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;int_log2;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (int_log2)
+  Routine is dead static
+
+
+<bwtgap.c;27:28;IPO INLINING;gap_init_stack;0>
+INLINING REPORT: (gap_init_stack) [90/94=95.7%]
+
+  -> gap_init_stack2(83) (isz = 26) (sz = 33 (7+26))
+
+
+<bwtgap.c;18:23;IPO INLINING;gap_init_stack2;0>
+INLINING REPORT: (gap_init_stack2) [91/94=96.8%]
+
+  -> wrap_calloc(EXTERN)
+  -> wrap_calloc(EXTERN)
+
+
+<bwase.c;499:502;IPO INLINING;bwase_initialize;0>
+INLINING REPORT: (bwase_initialize) [92/94=97.9%]
+
+  -> log(EXTERN)
+
+
+HPO VECTORIZER REPORT (bwase_initialize) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;bwase_initialize;0>
+HPO Vectorizer Report (bwase_initialize)
+
+bwase.c(501:2-501:2):VEC:bwase_initialize:  LOOP WAS VECTORIZED
+
+
+<ipo_out1.c;-1:-1;hlo;bwase_initialize;0>
+High Level Optimizer Report (bwase_initialize)
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwase.c;501:501;hlo_unroll;bwase_initialize;0>
+Loop at line 501 completely unrolled by 7   
+
+<bwase.c;499:502;IPO INLINING;bwase_initialize;0>
+INLINING REPORT: (bwase_initialize) [92/94=97.9%]
+
+  -> log(EXTERN)
+
+
+HPO VECTORIZER REPORT (bwase_initialize.V) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;bwase_initialize.V;0>
+HPO Vectorizer Report (bwase_initialize.V)
+
+
+
+<ipo_out1.c;-1:-1;hlo;bwase_initialize.V;0>
+High Level Optimizer Report (bwase_initialize.V)
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwase.c;501:501;hlo_unroll;bwase_initialize.V;0>
+Loop at line 501 completely unrolled by 7   
+
+<bwase.c;499:502;IPO INLINING;bwase_initialize;0>
+INLINING REPORT: (bwase_initialize) [92/94=97.9%]
+
+  -> log(EXTERN)
+
+
+HPO VECTORIZER REPORT (bwase_initialize.A) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwase.c;-1:-1;hpo_vectorization;bwase_initialize.A;0>
+HPO Vectorizer Report (bwase_initialize.A)
+
+
+
+<ipo_out1.c;-1:-1;hlo;bwase_initialize.A;0>
+High Level Optimizer Report (bwase_initialize.A)
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwase.c;501:501;hlo_unroll;bwase_initialize.A;0>
+Loop at line 501 completely unrolled by 1   
+
+<bwt_gen.c;114:117;IPO CONSTANT PROPAGATION;initializeVAL_bg;0>
+  CONSTANT PROPAGATION:FORMALS(2)
+
+
+<bwt_gen.c;114:117;IPO INLINING;initializeVAL_bg;0>
+INLINING REPORT: (initializeVAL_bg) [93/94=98.9%]
+
+
+
+<bwt_gen.c;114:117;IPO CONSTANT PROPAGATION;initializeVAL_bg;0>
+  CONSTANT PROPAGATION:VARS(2),
+
+
+HPO VECTORIZER REPORT (initializeVAL_bg) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwt_gen.c;-1:-1;hpo_vectorization;initializeVAL_bg;0>
+HPO Vectorizer Report (initializeVAL_bg)
+
+bwt_gen.c(116:2-116:2):VEC:initializeVAL_bg:  loop was not vectorized: vectorization possible but seems inefficient
+
+
+<ipo_out1.c;-1:-1;hlo;initializeVAL_bg;0>
+High Level Optimizer Report (initializeVAL_bg)
+
+
+<bwt_gen.c;116:116;hlo_reroll;initializeVAL_bg;0>
+Loop at line:116      memset throttled memop:: small-iter loop. 
+Loop at line:116      memset throttled memop:: small-iter loop. 
+
+Block, Unroll, Jam Report:
+(loop line numbers, unroll factors and type of transformation)
+
+<bwt_gen.c;116:116;hlo_unroll;initializeVAL_bg;0>
+Loop at line 116 completely unrolled by 5   
+
+<bwt_gen.c;108:111;IPO CONSTANT PROPAGATION;initializeVAL;0>
+  CONSTANT PROPAGATION:FORMALS(1)
+
+
+<bwt_gen.c;108:111;IPO INLINING;initializeVAL;0>
+INLINING REPORT: (initializeVAL) [94/94=100.0%]
+
+
+
+<bwt_gen.c;108:111;IPO CONSTANT PROPAGATION;initializeVAL;0>
+  CONSTANT PROPAGATION:VARS(1),
+
+
+HPO VECTORIZER REPORT (initializeVAL) LOG OPENED ON Tue Jan 27 01:38:46 2015
+
+
+<bwt_gen.c;-1:-1;hpo_vectorization;initializeVAL;0>
+HPO Vectorizer Report (initializeVAL)
+
+bwt_gen.c(110:2-110:2):VEC:initializeVAL:  LOOP WAS VECTORIZED
+loop was not vectorized: not inner loop
+
+
+<ipo_out1.c;-1:-1;hlo;initializeVAL;0>
+High Level Optimizer Report (initializeVAL)
+
+
+<bwt_gen.c;110:110;hlo_reroll;initializeVAL;0>
+Loop at line:110      memset generated  
+bwt_gen.c(110:27-110:27):CG:initializeVAL:  call to memset implemented as a call to optimized library version
+
+<bwase.c;-1:-1;PGO;bwase_initialize.A;0>
+  STATIC:bwase.c                bwase_initialize.A
+
+<bwase.c;-1:-1;PGO;bwase_initialize.V;0>
+  STATIC:bwase.c                bwase_initialize.V
+
+<QSufSort.c;-1:-1;PGO;QSufSortGenerateSaFromInverse.A;0>
+  STATIC:QSufSort.c             QSufSortGenerateSaFromInverse.A
+
+<QSufSort.c;-1:-1;PGO;QSufSortGenerateSaFromInverse.V;0>
+  STATIC:QSufSort.c             QSufSortGenerateSaFromInverse.V
+
+<QSufSort.c;-1:-1;PGO;QSufSortSortSplit.A;0>
+  STATIC:QSufSort.c             QSufSortSortSplit.A
+
+<QSufSort.c;-1:-1;PGO;QSufSortSortSplit.V;0>
+  STATIC:QSufSort.c             QSufSortSortSplit.V
+
+<bwaseqio.c;-1:-1;PGO;bwa_bam_open..0;0>
+  STATIC:bwaseqio.c             bwa_bam_open..0
+
+<bwtsw2_chain.c;-1:-1;PGO;chaining..0;0>
+  STATIC:bwtsw2_chain.c         chaining..0
+
+<bwt_gen.c;-1:-1;PGO;BWTIncSortKey..0;0>
+  STATIC:bwt_gen.c              BWTIncSortKey..0
+
+<bwtsw2_core.c;-1:-1;PGO;cut_tail..0;0>
+  STATIC:bwtsw2_core.c          cut_tail..0
+
+<bwtsw2_chain.c;-1:-1;PGO;ks_introsort_hsaip..0;0>
+  STATIC:bwtsw2_chain.c         ks_introsort_hsaip..0
+
+<bwtsw2_core.c;-1:-1;PGO;ks_introsort_hitG..0;0>
+  STATIC:bwtsw2_core.c          ks_introsort_hitG..0
+
+<bwaseqio.c;-1:-1;PGO;bwa_seq_close..0;0>
+  STATIC:bwaseqio.c             bwa_seq_close..0
+
+<main.c;-1:-1;PGO;main;0>
+  STATIC:main.c                 main
+
+<main.c;-1:-1;PGO;usage;0>
+  STATIC:main.c                 usage
+
+<bwtsw2_pair.c;-1:-1;PGO;bsw2_pair1;0>
+  STATIC:bwtsw2_pair.c          bsw2_pair1
+
+<bwtsw2_pair.c;-1:-1;PGO;bsw2_stat;0>
+  STATIC:bwtsw2_pair.c          bsw2_stat
+
+<fastmap.c;-1:-1;PGO;main_fastmap;0>
+  STATIC:fastmap.c              main_fastmap
+
+<fastmap.c;-1:-1;PGO;main_mem;0>
+  STATIC:fastmap.c              main_mem
+
+<fastmap.c;-1:-1;PGO;update_a;0>
+  STATIC:fastmap.c              update_a
+
+<fastmap.c;-1:-1;PGO;process;0>
+  STATIC:fastmap.c              process
+
+<bntseq.h;-1:-1;PGO;bns_depos.20;0>
+  STATIC:bntseq.h               bns_depos.20
+
+</usr/include/stdlib.h;-1:-1;PGO;atol.20;0>
+  STATIC:/usr/include/stdlib.h  atol.20
+
+</usr/include/stdlib.h;-1:-1;PGO;atoi.20;0>
+  STATIC:/usr/include/stdlib.h  atoi.20
+
+</usr/include/stdlib.h;-1:-1;PGO;atof.20;0>
+  STATIC:/usr/include/stdlib.h  atof.20
+
+<bwtsw2_chain.c;-1:-1;PGO;chaining;0>
+  STATIC:bwtsw2_chain.c         chaining
+
+<bwtsw2_chain.c;-1:-1;PGO;ks_ksmall_hsaip;0>
+  STATIC:bwtsw2_chain.c         ks_ksmall_hsaip
+
+<bwtsw2_chain.c;-1:-1;PGO;ks_introsort_hsaip;0>
+  STATIC:bwtsw2_chain.c         ks_introsort_hsaip
+
+<bwtsw2_chain.c;-1:-1;PGO;ks_combsort_hsaip;0>
+  STATIC:bwtsw2_chain.c         ks_combsort_hsaip
+
+<bwtsw2_chain.c;-1:-1;PGO;__ks_insertsort_hsaip;0>
+  STATIC:bwtsw2_chain.c         __ks_insertsort_hsaip
+
+<bwtsw2_chain.c;-1:-1;PGO;ks_heapsort_hsaip;0>
+  STATIC:bwtsw2_chain.c         ks_heapsort_hsaip
+
+<bwtsw2_chain.c;-1:-1;PGO;ks_heapmake_hsaip;0>
+  STATIC:bwtsw2_chain.c         ks_heapmake_hsaip
+
+<bwtsw2_chain.c;-1:-1;PGO;ks_heapadjust_hsaip;0>
+  STATIC:bwtsw2_chain.c         ks_heapadjust_hsaip
+
+<bwtsw2_chain.c;-1:-1;PGO;ks_mergesort_hsaip;0>
+  STATIC:bwtsw2_chain.c         ks_mergesort_hsaip
+
+<bwt_lite.c;-1:-1;PGO;bwtl_occ4;0>
+  STATIC:bwt_lite.c             bwtl_occ4
+
+<bwt_lite.c;-1:-1;PGO;bwtl_occ;0>
+  STATIC:bwt_lite.c             bwtl_occ
+
+<bwtsw2_aux.c;-1:-1;PGO;process_seqs.17;0>
+  STATIC:bwtsw2_aux.c           process_seqs.17
+
+<bwtsw2_aux.c;-1:-1;PGO;worker.17;0>
+  STATIC:bwtsw2_aux.c           worker.17
+
+<bwtsw2_aux.c;-1:-1;PGO;bsw2_aln_core;0>
+  STATIC:bwtsw2_aux.c           bsw2_aln_core
+
+<bwtsw2_aux.c;-1:-1;PGO;update_opt;0>
+  STATIC:bwtsw2_aux.c           update_opt
+
+<bwtsw2_aux.c;-1:-1;PGO;print_hits;0>
+  STATIC:bwtsw2_aux.c           print_hits
+
+<bwtsw2_aux.c;-1:-1;PGO;update_mate_aux;0>
+  STATIC:bwtsw2_aux.c           update_mate_aux
+
+<bwtsw2_aux.c;-1:-1;PGO;write_aux;0>
+  STATIC:bwtsw2_aux.c           write_aux
+
+<bwtsw2_aux.c;-1:-1;PGO;fix_cigar;0>
+  STATIC:bwtsw2_aux.c           fix_cigar
+
+<bwtsw2_aux.c;-1:-1;PGO;flag_fr;0>
+  STATIC:bwtsw2_aux.c           flag_fr
+
+<bwtsw2_chain.c;-1:-1;PGO;bsw2_chain_filter;0>
+  STATIC:bwtsw2_chain.c         bsw2_chain_filter
+
+<bwtsw2_aux.c;-1:-1;PGO;bsw2_aln1_core;0>
+  STATIC:bwtsw2_aux.c           bsw2_aln1_core
+
+<bwtsw2_aux.c;-1:-1;PGO;merge_hits;0>
+  STATIC:bwtsw2_aux.c           merge_hits
+
+<bwtsw2_aux.c;-1:-1;PGO;bsw2_debug_hits;0>
+  STATIC:bwtsw2_aux.c           bsw2_debug_hits
+
+<bwtsw2_aux.c;-1:-1;PGO;gen_cigar;0>
+  STATIC:bwtsw2_aux.c           gen_cigar
+
+<bwtsw2_aux.c;-1:-1;PGO;bsw2_extend_rght;0>
+  STATIC:bwtsw2_aux.c           bsw2_extend_rght
+
+<bwtsw2_aux.c;-1:-1;PGO;bsw2_extend_left;0>
+  STATIC:bwtsw2_aux.c           bsw2_extend_left
+
+<bwtsw2_aux.c;-1:-1;PGO;bsw2_dup_no_cigar;0>
+  STATIC:bwtsw2_aux.c           bsw2_dup_no_cigar
+
+<bwtsw2_aux.c;-1:-1;PGO;bsw2_destroy;0>
+  STATIC:bwtsw2_aux.c           bsw2_destroy
+
+<bwtsw2_aux.c;-1:-1;PGO;ks_ksmall_hit;0>
+  STATIC:bwtsw2_aux.c           ks_ksmall_hit
+
+<bwtsw2_aux.c;-1:-1;PGO;ks_introsort_hit;0>
+  STATIC:bwtsw2_aux.c           ks_introsort_hit
+
+<bwtsw2_aux.c;-1:-1;PGO;ks_combsort_hit;0>
+  STATIC:bwtsw2_aux.c           ks_combsort_hit
+
+<bwtsw2_aux.c;-1:-1;PGO;__ks_insertsort_hit;0>
+  STATIC:bwtsw2_aux.c           __ks_insertsort_hit
+
+<bwtsw2_aux.c;-1:-1;PGO;ks_heapsort_hit;0>
+  STATIC:bwtsw2_aux.c           ks_heapsort_hit
+
+<bwtsw2_aux.c;-1:-1;PGO;ks_heapmake_hit;0>
+  STATIC:bwtsw2_aux.c           ks_heapmake_hit
+
+<bwtsw2_aux.c;-1:-1;PGO;ks_heapadjust_hit;0>
+  STATIC:bwtsw2_aux.c           ks_heapadjust_hit
+
+<bwtsw2_aux.c;-1:-1;PGO;ks_mergesort_hit;0>
+  STATIC:bwtsw2_aux.c           ks_mergesort_hit
+
+<kstring.h;-1:-1;PGO;kputc.17;0>
+  STATIC:kstring.h              kputc.17
+
+<kstring.h;-1:-1;PGO;kputs;0>
+  STATIC:kstring.h              kputs
+
+<kstring.h;-1:-1;PGO;kputsn.17;0>
+  STATIC:kstring.h              kputsn.17
+
+<bwtsw2_pair.c;-1:-1;PGO;bsw2_pair;0>
+  STATIC:bwtsw2_pair.c          bsw2_pair
+
+<bwt_lite.c;-1:-1;PGO;bwtl_destroy;0>
+  STATIC:bwt_lite.c             bwtl_destroy
+
+<bwt_lite.c;-1:-1;PGO;bwtl_seq2bwtl;0>
+  STATIC:bwt_lite.c             bwtl_seq2bwtl
+
+<bwtsw2_main.c;-1:-1;PGO;bwa_bwtsw2;0>
+  STATIC:bwtsw2_main.c          bwa_bwtsw2
+
+<bwtsw2_aux.c;-1:-1;PGO;bsw2_aln;0>
+  STATIC:bwtsw2_aux.c           bsw2_aln
+
+<bwtsw2_aux.c;-1:-1;PGO;bsw2_init_opt;0>
+  STATIC:bwtsw2_aux.c           bsw2_init_opt
+
+</usr/include/stdlib.h;-1:-1;PGO;atoi.16;0>
+  STATIC:/usr/include/stdlib.h  atoi.16
+
+</usr/include/stdlib.h;-1:-1;PGO;atof.16;0>
+  STATIC:/usr/include/stdlib.h  atof.16
+
+<bwtsw2_core.c;-1:-1;PGO;bsw2_core;0>
+  STATIC:bwtsw2_core.c          bsw2_core
+
+<bwtsw2_core.c;-1:-1;PGO;init_bwtsw2;0>
+  STATIC:bwtsw2_core.c          init_bwtsw2
+
+<bwtsw2_core.c;-1:-1;PGO;fill_cell;0>
+  STATIC:bwtsw2_core.c          fill_cell
+
+<bwtsw2_core.c;-1:-1;PGO;bsw2_global_destroy;0>
+  STATIC:bwtsw2_core.c          bsw2_global_destroy
+
+<bwtsw2_core.c;-1:-1;PGO;bsw2_global_init;0>
+  STATIC:bwtsw2_core.c          bsw2_global_init
+
+<bwtsw2_core.c;-1:-1;PGO;bsw2_resolve_query_overlaps;0>
+  STATIC:bwtsw2_core.c          bsw2_resolve_query_overlaps
+
+<bwtsw2_core.c;-1:-1;PGO;bsw2_resolve_duphits;0>
+  STATIC:bwtsw2_core.c          bsw2_resolve_duphits
+
+<bwtsw2_core.c;-1:-1;PGO;save_narrow_hits;0>
+  STATIC:bwtsw2_core.c          save_narrow_hits
+
+<bwtsw2_core.c;-1:-1;PGO;save_hits;0>
+  STATIC:bwtsw2_core.c          save_hits
+
+<bwtsw2_core.c;-1:-1;PGO;push_array_p;0>
+  STATIC:bwtsw2_core.c          push_array_p
+
+<bwtsw2_core.c;-1:-1;PGO;merge_entry;0>
+  STATIC:bwtsw2_core.c          merge_entry
+
+<bwtsw2_core.c;-1:-1;PGO;remove_duplicate;0>
+  STATIC:bwtsw2_core.c          remove_duplicate
+
+<bwtsw2_core.c;-1:-1;PGO;cut_tail;0>
+  STATIC:bwtsw2_core.c          cut_tail
+
+<bwtsw2_core.c;-1:-1;PGO;bsw2_connectivity;0>
+  STATIC:bwtsw2_core.c          bsw2_connectivity
+
+<bwtsw2_core.c;-1:-1;PGO;mp_destroy;0>
+  STATIC:bwtsw2_core.c          mp_destroy
+
+<bwtsw2_core.c;-1:-1;PGO;mp_free;0>
+  STATIC:bwtsw2_core.c          mp_free
+
+<bwtsw2_core.c;-1:-1;PGO;mp_alloc;0>
+  STATIC:bwtsw2_core.c          mp_alloc
+
+<bwtsw2_core.c;-1:-1;PGO;stack_pop;0>
+  STATIC:bwtsw2_core.c          stack_pop
+
+<bwtsw2_core.c;-1:-1;PGO;stack_push0;0>
+  STATIC:bwtsw2_core.c          stack_push0
+
+<bwtsw2_core.c;-1:-1;PGO;stack_destroy;0>
+  STATIC:bwtsw2_core.c          stack_destroy
+
+<bwtsw2_core.c;-1:-1;PGO;ks_ksmall_hitG;0>
+  STATIC:bwtsw2_core.c          ks_ksmall_hitG
+
+<bwtsw2_core.c;-1:-1;PGO;ks_introsort_hitG;0>
+  STATIC:bwtsw2_core.c          ks_introsort_hitG
+
+<bwtsw2_core.c;-1:-1;PGO;ks_combsort_hitG;0>
+  STATIC:bwtsw2_core.c          ks_combsort_hitG
+
+<bwtsw2_core.c;-1:-1;PGO;__ks_insertsort_hitG;0>
+  STATIC:bwtsw2_core.c          __ks_insertsort_hitG
+
+<bwtsw2_core.c;-1:-1;PGO;ks_heapsort_hitG;0>
+  STATIC:bwtsw2_core.c          ks_heapsort_hitG
+
+<bwtsw2_core.c;-1:-1;PGO;ks_heapmake_hitG;0>
+  STATIC:bwtsw2_core.c          ks_heapmake_hitG
+
+<bwtsw2_core.c;-1:-1;PGO;ks_heapadjust_hitG;0>
+  STATIC:bwtsw2_core.c          ks_heapadjust_hitG
+
+<bwtsw2_core.c;-1:-1;PGO;ks_mergesort_hitG;0>
+  STATIC:bwtsw2_core.c          ks_mergesort_hitG
+
+<bwtsw2_core.c;-1:-1;PGO;ks_ksmall_int;0>
+  STATIC:bwtsw2_core.c          ks_ksmall_int
+
+<bwtsw2_core.c;-1:-1;PGO;ks_introsort_int;0>
+  STATIC:bwtsw2_core.c          ks_introsort_int
+
+<bwtsw2_core.c;-1:-1;PGO;ks_combsort_int;0>
+  STATIC:bwtsw2_core.c          ks_combsort_int
+
+<bwtsw2_core.c;-1:-1;PGO;__ks_insertsort_int;0>
+  STATIC:bwtsw2_core.c          __ks_insertsort_int
+
+<bwtsw2_core.c;-1:-1;PGO;ks_heapsort_int;0>
+  STATIC:bwtsw2_core.c          ks_heapsort_int
+
+<bwtsw2_core.c;-1:-1;PGO;ks_heapmake_int;0>
+  STATIC:bwtsw2_core.c          ks_heapmake_int
+
+<bwtsw2_core.c;-1:-1;PGO;ks_heapadjust_int;0>
+  STATIC:bwtsw2_core.c          ks_heapadjust_int
+
+<bwtsw2_core.c;-1:-1;PGO;ks_mergesort_int;0>
+  STATIC:bwtsw2_core.c          ks_mergesort_int
+
+<bwtsw2_core.c;-1:-1;PGO;kh_put_64;0>
+  STATIC:bwtsw2_core.c          kh_put_64
+
+<bwtsw2_core.c;-1:-1;PGO;kh_resize_64;0>
+  STATIC:bwtsw2_core.c          kh_resize_64
+
+<bwtsw2_core.c;-1:-1;PGO;kh_get_64;0>
+  STATIC:bwtsw2_core.c          kh_get_64
+
+<bwtsw2_core.c;-1:-1;PGO;kh_destroy_64;0>
+  STATIC:bwtsw2_core.c          kh_destroy_64
+
+<bwtsw2_core.c;-1:-1;PGO;kh_init_64;0>
+  STATIC:bwtsw2_core.c          kh_init_64
+
+<bwtsw2_core.c;-1:-1;PGO;kh_put_qintv;0>
+  STATIC:bwtsw2_core.c          kh_put_qintv
+
+<bwtsw2_core.c;-1:-1;PGO;kh_resize_qintv;0>
+  STATIC:bwtsw2_core.c          kh_resize_qintv
+
+<bwtsw2_core.c;-1:-1;PGO;kh_clear_qintv;0>
+  STATIC:bwtsw2_core.c          kh_clear_qintv
+
+<bwtsw2_core.c;-1:-1;PGO;kh_destroy_qintv;0>
+  STATIC:bwtsw2_core.c          kh_destroy_qintv
+
+<bwtsw2_core.c;-1:-1;PGO;kh_init_qintv;0>
+  STATIC:bwtsw2_core.c          kh_init_qintv
+
+<bntseq.h;-1:-1;PGO;bns_depos.15;0>
+  STATIC:bntseq.h               bns_depos.15
+
+<bwt_lite.c;-1:-1;PGO;bwtl_2occ4;0>
+  STATIC:bwt_lite.c             bwtl_2occ4
+
+<pemerge.c;-1:-1;PGO;main_pemerge;0>
+  STATIC:pemerge.c              main_pemerge
+
+<pemerge.c;-1:-1;PGO;process_seqs;0>
+  STATIC:pemerge.c              process_seqs
+
+<pemerge.c;-1:-1;PGO;worker;0>
+  STATIC:pemerge.c              worker
+
+<pemerge.c;-1:-1;PGO;print_bseq;0>
+  STATIC:pemerge.c              print_bseq
+
+<pemerge.c;-1:-1;PGO;bwa_pemerge;0>
+  STATIC:pemerge.c              bwa_pemerge
+
+<pemerge.c;-1:-1;PGO;pem_opt_init;0>
+  STATIC:pemerge.c              pem_opt_init
+
+</usr/include/stdlib.h;-1:-1;PGO;atoi.14;0>
+  STATIC:/usr/include/stdlib.h  atoi.14
+
+<kopen.c;-1:-1;PGO;kclose;0>
+  STATIC:kopen.c                kclose
+
+<kopen.c;-1:-1;PGO;kopen;0>
+  STATIC:kopen.c                kopen
+
+<kopen.c;-1:-1;PGO;cmd2argv;0>
+  STATIC:kopen.c                cmd2argv
+
+<kopen.c;-1:-1;PGO;ftp_open;0>
+  STATIC:kopen.c                ftp_open
+
+<kopen.c;-1:-1;PGO;kftp_send_cmd;0>
+  STATIC:kopen.c                kftp_send_cmd
+
+<kopen.c;-1:-1;PGO;kftp_get_response;0>
+  STATIC:kopen.c                kftp_get_response
+
+<kopen.c;-1:-1;PGO;http_open;0>
+  STATIC:kopen.c                http_open
+
+<kopen.c;-1:-1;PGO;write_bytes;0>
+  STATIC:kopen.c                write_bytes
+
+<kopen.c;-1:-1;PGO;socket_connect;0>
+  STATIC:kopen.c                socket_connect
+
+<kopen.c;-1:-1;PGO;socket_wait;0>
+  STATIC:kopen.c                socket_wait
+
+<bwape.c;-1:-1;PGO;bwa_sai2sam_pe;0>
+  STATIC:bwape.c                bwa_sai2sam_pe
+
+<bwape.c;-1:-1;PGO;bwa_sai2sam_pe_core;0>
+  STATIC:bwape.c                bwa_sai2sam_pe_core
+
+<bwape.c;-1:-1;PGO;bwa_paired_sw;0>
+  STATIC:bwape.c                bwa_paired_sw
+
+<bwape.c;-1:-1;PGO;bwa_sw_core;0>
+  STATIC:bwape.c                bwa_sw_core
+
+<bwape.c;-1:-1;PGO;bwa_cal_pac_pos_pe;0>
+  STATIC:bwape.c                bwa_cal_pac_pos_pe
+
+<bwape.c;-1:-1;PGO;pairing;0>
+  STATIC:bwape.c                pairing
+
+<bwape.c;-1:-1;PGO;infer_isize;0>
+  STATIC:bwape.c                infer_isize
+
+<bwape.c;-1:-1;PGO;bwa_init_pe_opt;0>
+  STATIC:bwape.c                bwa_init_pe_opt
+
+<bwape.c;-1:-1;PGO;kh_put_b128;0>
+  STATIC:bwape.c                kh_put_b128
+
+<bwape.c;-1:-1;PGO;kh_resize_b128;0>
+  STATIC:bwape.c                kh_resize_b128
+
+<bwape.c;-1:-1;PGO;kh_destroy_b128;0>
+  STATIC:bwape.c                kh_destroy_b128
+
+<bwape.c;-1:-1;PGO;kh_init_b128;0>
+  STATIC:bwape.c                kh_init_b128
+
+<utils.h;-1:-1;PGO;hash_64;0>
+  STATIC:utils.h                hash_64
+
+</usr/include/stdlib.h;-1:-1;PGO;atoi.12;0>
+  STATIC:/usr/include/stdlib.h  atoi.12
+
+</usr/include/stdlib.h;-1:-1;PGO;atof.12;0>
+  STATIC:/usr/include/stdlib.h  atof.12
+
+<bwtindex.c;-1:-1;PGO;bwa_index;0>
+  STATIC:bwtindex.c             bwa_index
+
+<bwtindex.c;-1:-1;PGO;bwa_bwt2sa;0>
+  STATIC:bwtindex.c             bwa_bwt2sa
+
+<bwtindex.c;-1:-1;PGO;bwa_bwtupdate;0>
+  STATIC:bwtindex.c             bwa_bwtupdate
+
+<bwtindex.c;-1:-1;PGO;bwt_bwtupdate_core;0>
+  STATIC:bwtindex.c             bwt_bwtupdate_core
+
+<bwtindex.c;-1:-1;PGO;bwa_pac2bwt;0>
+  STATIC:bwtindex.c             bwa_pac2bwt
+
+<bwtindex.c;-1:-1;PGO;bwt_pac2bwt;0>
+  STATIC:bwtindex.c             bwt_pac2bwt
+
+<bwtindex.c;-1:-1;PGO;bwa_seq_len;0>
+  STATIC:bwtindex.c             bwa_seq_len
+
+</usr/include/stdlib.h;-1:-1;PGO;atoi.11;0>
+  STATIC:/usr/include/stdlib.h  atoi.11
+
+<is.c;-1:-1;PGO;is_bwt;0>
+  STATIC:is.c                   is_bwt
+
+<is.c;-1:-1;PGO;is_sa;0>
+  STATIC:is.c                   is_sa
+
+<is.c;-1:-1;PGO;sais_main;0>
+  STATIC:is.c                   sais_main
+
+<is.c;-1:-1;PGO;induceSA;0>
+  STATIC:is.c                   induceSA
+
+<is.c;-1:-1;PGO;getBuckets;0>
+  STATIC:is.c                   getBuckets
+
+<is.c;-1:-1;PGO;getCounts;0>
+  STATIC:is.c                   getCounts
+
+<bamlite.c;-1:-1;PGO;bamlite_gzread;0>
+  STATIC:bamlite.c              bamlite_gzread
+
+<bamlite.c;-1:-1;PGO;swap_endian_data;0>
+  STATIC:bamlite.c              swap_endian_data
+
+<bamlite.c;-1:-1;PGO;bam_header_init;0>
+  STATIC:bamlite.c              bam_header_init
+
+<bamlite.c;-1:-1;PGO;bam_swap_endian_8p;0>
+  STATIC:bamlite.c              bam_swap_endian_8p
+
+<bamlite.c;-1:-1;PGO;bam_swap_endian_8;0>
+  STATIC:bamlite.c              bam_swap_endian_8
+
+<bamlite.c;-1:-1;PGO;bam_swap_endian_4p;0>
+  STATIC:bamlite.c              bam_swap_endian_4p
+
+<bamlite.c;-1:-1;PGO;bam_swap_endian_4;0>
+  STATIC:bamlite.c              bam_swap_endian_4
+
+<bamlite.c;-1:-1;PGO;bam_swap_endian_2p;0>
+  STATIC:bamlite.c              bam_swap_endian_2p
+
+<bamlite.c;-1:-1;PGO;bam_swap_endian_2;0>
+  STATIC:bamlite.c              bam_swap_endian_2
+
+<bamlite.c;-1:-1;PGO;bam_is_big_endian;0>
+  STATIC:bamlite.c              bam_is_big_endian
+
+</usr/include/ctype.h;-1:-1;PGO;toupper.9;0>
+  STATIC:/usr/include/ctype.h   toupper.9
+
+<bwtaln.c;-1:-1;PGO;bwa_aln;0>
+  STATIC:bwtaln.c               bwa_aln
+
+<bwtaln.c;-1:-1;PGO;bwa_aln_core;0>
+  STATIC:bwtaln.c               bwa_aln_core
+
+<bwtaln.c;-1:-1;PGO;worker.8;0>
+  STATIC:bwtaln.c               worker.8
+
+<bwtaln.c;-1:-1;PGO;bwa_cal_sa_reg_gap;0>
+  STATIC:bwtaln.c               bwa_cal_sa_reg_gap
+
+<bwtaln.c;-1:-1;PGO;bwt_cal_width;0>
+  STATIC:bwtaln.c               bwt_cal_width
+
+<bwtaln.c;-1:-1;PGO;gap_init_opt;0>
+  STATIC:bwtaln.c               gap_init_opt
+
+</usr/include/stdlib.h;-1:-1;PGO;atoi.8;0>
+  STATIC:/usr/include/stdlib.h  atoi.8
+
+</usr/include/stdlib.h;-1:-1;PGO;atof.8;0>
+  STATIC:/usr/include/stdlib.h  atof.8
+
+<bwtgap.c;-1:-1;PGO;bwt_match_gap;0>
+  STATIC:bwtgap.c               bwt_match_gap
+
+<bwtgap.c;-1:-1;PGO;int_log2;0>
+  STATIC:bwtgap.c               int_log2
+
+<bwtgap.c;-1:-1;PGO;gap_shadow;0>
+  STATIC:bwtgap.c               gap_shadow
+
+<bwtgap.c;-1:-1;PGO;gap_pop;0>
+  STATIC:bwtgap.c               gap_pop
+
+<bwtgap.c;-1:-1;PGO;gap_push;0>
+  STATIC:bwtgap.c               gap_push
+
+<bwtgap.c;-1:-1;PGO;gap_reset_stack;0>
+  STATIC:bwtgap.c               gap_reset_stack
+
+<bwtgap.c;-1:-1;PGO;gap_destroy_stack;0>
+  STATIC:bwtgap.c               gap_destroy_stack
+
+<bwtgap.c;-1:-1;PGO;gap_init_stack;0>
+  STATIC:bwtgap.c               gap_init_stack
+
+<bwtgap.c;-1:-1;PGO;gap_init_stack2;0>
+  STATIC:bwtgap.c               gap_init_stack2
+
+<bwaseqio.c;-1:-1;PGO;bwa_read_bam;0>
+  STATIC:bwaseqio.c             bwa_read_bam
+
+<bwaseqio.c;-1:-1;PGO;bwa_trim_read;0>
+  STATIC:bwaseqio.c             bwa_trim_read
+
+<bwaseqio.c;-1:-1;PGO;bwa_seq_open;0>
+  STATIC:bwaseqio.c             bwa_seq_open
+
+<bwaseqio.c;-1:-1;PGO;bwa_bam_open;0>
+  STATIC:bwaseqio.c             bwa_bam_open
+
+<bamlite.c;-1:-1;PGO;bamlite_gzclose;0>
+  STATIC:bamlite.c              bamlite_gzclose
+
+<bamlite.c;-1:-1;PGO;bamlite_gzopen;0>
+  STATIC:bamlite.c              bamlite_gzopen
+
+<bamlite.c;-1:-1;PGO;bam_read1;0>
+  STATIC:bamlite.c              bam_read1
+
+<bamlite.c;-1:-1;PGO;bam_header_read;0>
+  STATIC:bamlite.c              bam_header_read
+
+<bamlite.c;-1:-1;PGO;bam_header_destroy;0>
+  STATIC:bamlite.c              bam_header_destroy
+
+</usr/include/ctype.h;-1:-1;PGO;toupper.6;0>
+  STATIC:/usr/include/ctype.h   toupper.6
+
+</usr/include/ctype.h;-1:-1;PGO;tolower.6;0>
+  STATIC:/usr/include/ctype.h   tolower.6
+
+<bwase.c;-1:-1;PGO;bwa_sai2sam_se;0>
+  STATIC:bwase.c                bwa_sai2sam_se
+
+<bwtaln.c;-1:-1;PGO;bwa_open_reads;0>
+  STATIC:bwtaln.c               bwa_open_reads
+
+<bwase.c;-1:-1;PGO;bwa_sai2sam_se_core;0>
+  STATIC:bwase.c                bwa_sai2sam_se_core
+
+<bwase.c;-1:-1;PGO;bwase_initialize;0>
+  STATIC:bwase.c                bwase_initialize
+
+<bwase.c;-1:-1;PGO;bwa_print_sam1;0>
+  STATIC:bwase.c                bwa_print_sam1
+
+<bwase.c;-1:-1;PGO;bwa_print_seq;0>
+  STATIC:bwase.c                bwa_print_seq
+
+<bwase.c;-1:-1;PGO;pos_5;0>
+  STATIC:bwase.c                pos_5
+
+<bwase.c;-1:-1;PGO;pos_end_multi;0>
+  STATIC:bwase.c                pos_end_multi
+
+<bwase.c;-1:-1;PGO;pos_end;0>
+  STATIC:bwase.c                pos_end
+
+<bwase.c;-1:-1;PGO;bwa_refine_gapped;0>
+  STATIC:bwase.c                bwa_refine_gapped
+
+<bwase.c;-1:-1;PGO;bwa_correct_trimmed;0>
+  STATIC:bwase.c                bwa_correct_trimmed
+
+<bwase.c;-1:-1;PGO;bwa_cal_md1;0>
+  STATIC:bwase.c                bwa_cal_md1
+
+<bwase.c;-1:-1;PGO;bwa_refine_gapped_core;0>
+  STATIC:bwase.c                bwa_refine_gapped_core
+
+<bwase.c;-1:-1;PGO;bwa_cal_pac_pos;0>
+  STATIC:bwase.c                bwa_cal_pac_pos
+
+<bwase.c;-1:-1;PGO;bwa_cal_pac_pos_core;0>
+  STATIC:bwase.c                bwa_cal_pac_pos_core
+
+<bwase.c;-1:-1;PGO;bwa_sa2pos;0>
+  STATIC:bwase.c                bwa_sa2pos
+
+<bwase.c;-1:-1;PGO;bwa_approx_mapQ;0>
+  STATIC:bwase.c                bwa_approx_mapQ
+
+<bwase.c;-1:-1;PGO;bwa_aln2seq;0>
+  STATIC:bwase.c                bwa_aln2seq
+
+<bwase.c;-1:-1;PGO;bwa_aln2seq_core;0>
+  STATIC:bwase.c                bwa_aln2seq_core
+
+<kstring.h;-1:-1;PGO;kputc;0>
+  STATIC:kstring.h              kputc
+
+<bwtaln.c;-1:-1;PGO;bwa_cal_maxdiff;0>
+  STATIC:bwtaln.c               bwa_cal_maxdiff
+
+<bwaseqio.c;-1:-1;PGO;bwa_free_read_seq;0>
+  STATIC:bwaseqio.c             bwa_free_read_seq
+
+<bwaseqio.c;-1:-1;PGO;bwa_read_seq;0>
+  STATIC:bwaseqio.c             bwa_read_seq
+
+<bwaseqio.c;-1:-1;PGO;seq_reverse;0>
+  STATIC:bwaseqio.c             seq_reverse
+
+<bwaseqio.c;-1:-1;PGO;bwa_seq_close;0>
+  STATIC:bwaseqio.c             bwa_seq_close
+
+<bntseq.h;-1:-1;PGO;bns_depos;0>
+  STATIC:bntseq.h               bns_depos
+
+</usr/include/stdlib.h;-1:-1;PGO;atoi.5;0>
+  STATIC:/usr/include/stdlib.h  atoi.5
+
+<bwashm.c;-1:-1;PGO;main_shm;0>
+  STATIC:bwashm.c               main_shm
+
+<bwashm.c;-1:-1;PGO;bwa_shm_destroy;0>
+  STATIC:bwashm.c               bwa_shm_destroy
+
+<bwashm.c;-1:-1;PGO;bwa_shm_list;0>
+  STATIC:bwashm.c               bwa_shm_list
+
+<bwashm.c;-1:-1;PGO;bwa_shm_test;0>
+  STATIC:bwashm.c               bwa_shm_test
+
+<bwashm.c;-1:-1;PGO;bwa_idx_load_from_shm;0>
+  STATIC:bwashm.c               bwa_idx_load_from_shm
+
+<bwashm.c;-1:-1;PGO;bwa_shm_stage;0>
+  STATIC:bwashm.c               bwa_shm_stage
+
+<bwt_gen.c;-1:-1;PGO;bwt_bwtgen_main;0>
+  STATIC:bwt_gen.c              bwt_bwtgen_main
+
+<bwt_gen.c;-1:-1;PGO;bwt_bwtgen;0>
+  STATIC:bwt_gen.c              bwt_bwtgen
+
+<bwt_gen.c;-1:-1;PGO;bwt_bwtgen2;0>
+  STATIC:bwt_gen.c              bwt_bwtgen2
+
+<bwt_gen.c;-1:-1;PGO;BWTSaveBwtCodeAndOcc;0>
+  STATIC:bwt_gen.c              BWTSaveBwtCodeAndOcc
+
+<bwt_gen.c;-1:-1;PGO;BWTFileSizeInWord;0>
+  STATIC:bwt_gen.c              BWTFileSizeInWord
+
+<bwt_gen.c;-1:-1;PGO;BWTIncFree;0>
+  STATIC:bwt_gen.c              BWTIncFree
+
+<bwt_gen.c;-1:-1;PGO;BWTFree;0>
+  STATIC:bwt_gen.c              BWTFree
+
+<bwt_gen.c;-1:-1;PGO;BWTIncConstructFromPacked;0>
+  STATIC:bwt_gen.c              BWTIncConstructFromPacked
+
+<bwt_gen.c;-1:-1;PGO;BWTIncConstruct;0>
+  STATIC:bwt_gen.c              BWTIncConstruct
+
+<bwt_gen.c;-1:-1;PGO;BWTGenerateOccValueFromBwt;0>
+  STATIC:bwt_gen.c              BWTGenerateOccValueFromBwt
+
+<bwt_gen.c;-1:-1;PGO;BWTClearTrailingBwtCode;0>
+  STATIC:bwt_gen.c              BWTClearTrailingBwtCode
+
+<bwt_gen.c;-1:-1;PGO;BWTIncMergeBwt;0>
+  STATIC:bwt_gen.c              BWTIncMergeBwt
+
+<bwt_gen.c;-1:-1;PGO;BWTIncBuildBwt;0>
+  STATIC:bwt_gen.c              BWTIncBuildBwt
+
+<bwt_gen.c;-1:-1;PGO;BWTIncBuildRelativeRank;0>
+  STATIC:bwt_gen.c              BWTIncBuildRelativeRank
+
+<bwt_gen.c;-1:-1;PGO;BWTIncSortKey;0>
+  STATIC:bwt_gen.c              BWTIncSortKey
+
+<bwt_gen.c;-1:-1;PGO;BWTIncGetAbsoluteRank;0>
+  STATIC:bwt_gen.c              BWTIncGetAbsoluteRank
+
+<bwt_gen.c;-1:-1;PGO;BWTOccValue;0>
+  STATIC:bwt_gen.c              BWTOccValue
+
+<bwt_gen.c;-1:-1;PGO;BackwardDNAOccCount;0>
+  STATIC:bwt_gen.c              BackwardDNAOccCount
+
+<bwt_gen.c;-1:-1;PGO;ForwardDNAOccCount;0>
+  STATIC:bwt_gen.c              ForwardDNAOccCount
+
+<bwt_gen.c;-1:-1;PGO;BWTOccValueExplicit;0>
+  STATIC:bwt_gen.c              BWTOccValueExplicit
+
+<bwt_gen.c;-1:-1;PGO;BWTIncBuildPackedBwt;0>
+  STATIC:bwt_gen.c              BWTIncBuildPackedBwt
+
+<bwt_gen.c;-1:-1;PGO;ForwardDNAAllOccCountNoLimit;0>
+  STATIC:bwt_gen.c              ForwardDNAAllOccCountNoLimit
+
+<bwt_gen.c;-1:-1;PGO;BWTIncPutPackedTextToRank;0>
+  STATIC:bwt_gen.c              BWTIncPutPackedTextToRank
+
+<bwt_gen.c;-1:-1;PGO;BWTIncCreate;0>
+  STATIC:bwt_gen.c              BWTIncCreate
+
+<bwt_gen.c;-1:-1;PGO;BWTCreate;0>
+  STATIC:bwt_gen.c              BWTCreate
+
+<bwt_gen.c;-1:-1;PGO;ConvertBytePackedToWordPacked;0>
+  STATIC:bwt_gen.c              ConvertBytePackedToWordPacked
+
+<bwt_gen.c;-1:-1;PGO;BitPerWordPackedChar;0>
+  STATIC:bwt_gen.c              BitPerWordPackedChar
+
+<bwt_gen.c;-1:-1;PGO;BitPerBytePackedChar;0>
+  STATIC:bwt_gen.c              BitPerBytePackedChar
+
+<bwt_gen.c;-1:-1;PGO;ceilLog2;0>
+  STATIC:bwt_gen.c              ceilLog2
+
+<bwt_gen.c;-1:-1;PGO;leadingZero;0>
+  STATIC:bwt_gen.c              leadingZero
+
+<bwt_gen.c;-1:-1;PGO;BWTIncSetBuildSizeAndTextAddr;0>
+  STATIC:bwt_gen.c              BWTIncSetBuildSizeAndTextAddr
+
+<bwt_gen.c;-1:-1;PGO;BWTResidentSizeInWord;0>
+  STATIC:bwt_gen.c              BWTResidentSizeInWord
+
+<bwt_gen.c;-1:-1;PGO;BWTOccValueMinorSizeInWord;0>
+  STATIC:bwt_gen.c              BWTOccValueMinorSizeInWord
+
+<bwt_gen.c;-1:-1;PGO;BWTOccValueMajorSizeInWord;0>
+  STATIC:bwt_gen.c              BWTOccValueMajorSizeInWord
+
+<bwt_gen.c;-1:-1;PGO;GenerateDNAOccCountTable;0>
+  STATIC:bwt_gen.c              GenerateDNAOccCountTable
+
+<bwt_gen.c;-1:-1;PGO;initializeVAL_bg;0>
+  STATIC:bwt_gen.c              initializeVAL_bg
+
+<bwt_gen.c;-1:-1;PGO;initializeVAL;0>
+  STATIC:bwt_gen.c              initializeVAL
+
+<bwt_gen.c;-1:-1;PGO;TextLengthFromBytePacked;0>
+  STATIC:bwt_gen.c              TextLengthFromBytePacked
+
+<QSufSort.c;-1:-1;PGO;QSufSortTransform;0>
+  STATIC:QSufSort.c             QSufSortTransform
+
+<QSufSort.c;-1:-1;PGO;QSufSortBucketSort;0>
+  STATIC:QSufSort.c             QSufSortBucketSort
+
+<QSufSort.c;-1:-1;PGO;QSufSortInsertSortSplit;0>
+  STATIC:QSufSort.c             QSufSortInsertSortSplit
+
+<QSufSort.c;-1:-1;PGO;QSufSortChoosePivot;0>
+  STATIC:QSufSort.c             QSufSortChoosePivot
+
+<QSufSort.c;-1:-1;PGO;QSufSortSortSplit;0>
+  STATIC:QSufSort.c             QSufSortSortSplit
+
+<QSufSort.c;-1:-1;PGO;QSufSortGenerateSaFromInverse;0>
+  STATIC:QSufSort.c             QSufSortGenerateSaFromInverse
+
+<QSufSort.c;-1:-1;PGO;QSufSortSuffixSort;0>
+  STATIC:QSufSort.c             QSufSortSuffixSort
+
+<;-1:-1;PGO;;0>
+
+    284 FUNCTIONS HAD VALID STATIC PROFILES
+
+  IPO CURRENT  QUALITY METRIC:  50.0%
+  IPO POSSIBLE QUALITY METRIC:  50.0%
+  IPO QUALITY  METRIC RATIO:   100.0%
+
+
