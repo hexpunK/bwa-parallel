@@ -317,7 +317,7 @@ static void QSufSortBucketSort(qsint_t* __restrict V, qsint_t* __restrict I, con
 				V[c] = groupNum;
 				currentIndex -= 1;
                 if (currentIndex <= 30) {
-                    printf("--------------------")
+                    printf("--------------------");
                     printf("i: %ld\n", i);
                     printf("currentIndex: %ld\n", currentIndex);
                     printf("groupNum: %ld\n", groupNum);
