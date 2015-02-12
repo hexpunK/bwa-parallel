@@ -23,7 +23,7 @@
 					- Reconstructing suffix array from inverse becomes an option
 					- Add handling where end-of-text symbol is not necessary < all characters
 					- Removed codes for supporting alphabet size > number of characters
-  
+
   No warrenty is given regarding the quality of the modifications.
 
 */
@@ -39,21 +39,21 @@
 #define swap(a, b, t);							t = a; a = b; b = t;
 
 // Static functions
-static void QSufSortSortSplit(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t lowestPos, 
+static void QSufSortSortSplit(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t lowestPos,
 							  const qsint_t highestPos, const qsint_t numSortedChar);
-static qsint_t QSufSortChoosePivot(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t lowestPos, 
+static qsint_t QSufSortChoosePivot(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t lowestPos,
 							   const qsint_t highestPos, const qsint_t numSortedChar);
-static void QSufSortInsertSortSplit(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t lowestPos, 
+static void QSufSortInsertSortSplit(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t lowestPos,
 									const qsint_t highestPos, const qsint_t numSortedChar);
 static void QSufSortBucketSort(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t numChar, const qsint_t alphabetSize);
-static qsint_t QSufSortTransform(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t numChar, const qsint_t largestInputSymbol, 
+static qsint_t QSufSortTransform(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t numChar, const qsint_t largestInputSymbol,
 							 const qsint_t smallestInputSymbol, const qsint_t maxNewAlphabetSize, qsint_t *numSymbolAggregated);
 
 /* Makes suffix array p of x. x becomes inverse of p. p and x are both of size
    n+1. Contents of x[0...n-1] are integers in the range l...k-1. Original
    contents of x[n] is disregarded, the n-th symbol being regarded as
    end-of-string smaller than all other symbols.*/
-void QSufSortSuffixSort(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t numChar, const qsint_t largestInputSymbol, 
+void QSufSortSuffixSort(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t numChar, const qsint_t largestInputSymbol,
 						const qsint_t smallestInputSymbol, const int skipTransform)
 {
 	qsint_t i, j;
@@ -61,10 +61,10 @@ void QSufSortSuffixSort(qsint_t* __restrict V, qsint_t* __restrict I, const qsin
 	qsint_t numSymbolAggregated;
 	qsint_t numSortedPos = 1;
 	qsint_t newAlphabetSize;
-   
+
 	if (!skipTransform) {
 		/* bucketing possible*/
-		newAlphabetSize = QSufSortTransform(V, I, numChar, largestInputSymbol, smallestInputSymbol, 
+		newAlphabetSize = QSufSortTransform(V, I, numChar, largestInputSymbol, smallestInputSymbol,
 											numChar, &numSymbolAggregated);
 		QSufSortBucketSort(V, I, numChar, newAlphabetSize);
 		I[0] = -1;
@@ -110,7 +110,7 @@ void QSufSortGenerateSaFromInverse(const qsint_t* V, qsint_t* __restrict I, cons
    quicksort taken from Bentley & McIlroy, "Engineering a Sort Function",
    Software -- Practice and Experience 23(11), 1249-1265 (November 1993). This
    function is based on Program 7.*/
-static void QSufSortSortSplit(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t lowestPos, 
+static void QSufSortSortSplit(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t lowestPos,
 							  const qsint_t highestPos, const qsint_t numSortedChar) {
 
 	qsint_t a, b, c, d;
@@ -191,7 +191,7 @@ static void QSufSortSortSplit(qsint_t* __restrict V, qsint_t* __restrict I, cons
 }
 
 /* Algorithm by Bentley & McIlroy.*/
-static qsint_t QSufSortChoosePivot(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t lowestPos, 
+static qsint_t QSufSortChoosePivot(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t lowestPos,
 							   const qsint_t highestPos, const qsint_t numSortedChar) {
 
 	qsint_t m;
@@ -224,7 +224,7 @@ static qsint_t QSufSortChoosePivot(qsint_t* __restrict V, qsint_t* __restrict I,
 }
 
 /* Quadratic sorting method to use for small subarrays. */
-static void QSufSortInsertSortSplit(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t lowestPos, 
+static void QSufSortInsertSortSplit(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t lowestPos,
 									const qsint_t highestPos, const qsint_t numSortedChar)
 {
 	qsint_t i, j;
@@ -284,7 +284,7 @@ static void QSufSortInsertSortSplit(qsint_t* __restrict V, qsint_t* __restrict I
 
    Output: x is V and p is I after the initial sorting stage of the refined
    suffix sorting algorithm.*/
-      
+
 static void QSufSortBucketSort(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t numChar, const qsint_t alphabetSize)
 {
 	qsint_t i, c;
@@ -305,7 +305,6 @@ static void QSufSortBucketSort(qsint_t* __restrict V, qsint_t* __restrict I, con
 
 	currentIndex = numChar;
 	for (i=alphabetSize; i>0; i--) {
-		if (currentIndex < 0) break;
 		c = I[i-1];
 		d = (qsint_t)(V[c]);
 		groupNum = currentIndex;
@@ -316,15 +315,14 @@ static void QSufSortBucketSort(qsint_t* __restrict V, qsint_t* __restrict I, con
 				c = d;
 				d = V[c];
 				V[c] = groupNum;
-				currentIndex--;	
-				if (currentIndex < 0) break;
+				currentIndex -= 1;
 				I[currentIndex] = c;
 			}
 		} else {
 			// sorted group
 			I[currentIndex] = -1;
 		}
-		currentIndex--;
+		currentIndex -=;
 	}
 }
 
@@ -339,11 +337,11 @@ static void QSufSortBucketSort(qsint_t* __restrict V, qsint_t* __restrict I, con
    for any symbol during transformation: q must be at least k-l; if q<=n,
    compaction is guaranteed; if k-l>n, compaction is never done; if q is
    INT_MAX, the maximum number of symbols are aggregated into one.
-   
+
    Output: Returns an integer j in the range 1...q representing the size of the
    new alphabet. If j<=n+1, the alphabet is compacted. The global variable r is
    set to the number of old symbols grouped into one. Only x[n] is 0.*/
-static qsint_t QSufSortTransform(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t numChar, const qsint_t largestInputSymbol, 
+static qsint_t QSufSortTransform(qsint_t* __restrict V, qsint_t* __restrict I, const qsint_t numChar, const qsint_t largestInputSymbol,
 							 const qsint_t smallestInputSymbol, const qsint_t maxNewAlphabetSize, qsint_t *numSymbolAggregated)
 {
 	qsint_t c, i, j;
