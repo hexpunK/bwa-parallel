@@ -316,13 +316,15 @@ static void QSufSortBucketSort(qsint_t* __restrict V, qsint_t* __restrict I, con
 				d = V[c];
 				V[c] = groupNum;
 				currentIndex -= 1;
+                if (i <= 3)
+                    printf("currentIndex: %d", currentIndex);
 				I[currentIndex] = c;
 			}
 		} else {
 			// sorted group
 			I[currentIndex] = -1;
 		}
-		currentIndex -=;
+		currentIndex -= 1;
 	}
 }
 
